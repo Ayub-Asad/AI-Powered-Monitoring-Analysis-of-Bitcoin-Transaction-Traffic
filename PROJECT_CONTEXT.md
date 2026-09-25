@@ -1,3 +1,41 @@
+# Current milestone status - 2026-09-25
+
+Dataset v2 + Feature Engineering is implemented and validated on `feat/dataset-v2-feature-engineering`. The historical notes below are retained; where they conflict with this section, this section and the actual code supersede them.
+
+- Baseline: 69 passed, 7 skipped (obsolete generator-test path), 0 failed. Supplemental in-memory path correction: all 7 passed.
+- Final: 105 passed, 0 skipped, 0 failed, 75 passing subtests, one Starlette/httpx deprecation warning; measured 59.96 seconds.
+- Fixed generator test discovery, negative sub-satoshi fee acceptance (including underflow), and timestamp OverflowError escapes.
+- V2: exactly 18,000 records at seed 42: 15,300 normal + 2,700 anomalies. Distribution: rapid 540; dust, high-value, peeling and ports 405 each; fees and geo 270 each. Complete scenarios, integer-satoshi conservation, persistent actors and synthetic observer mappings.
+- Regression dataset: 1,000 records (850/150). Original v1 CSV remains unchanged and reproducible with --schema-version 1.
+- V2 amount_btc is sum of outputs INCLUDING CHANGE; inputs equal outputs plus fee. Both amount arrays required together; v1 fields/values and warning-only count policy remain compatible.
+- Canonical output is now 19 columns (two optional allocation lists added). Ground truth remains separate. CSV JSON-array cells and native JSON/JSONL arrays are supported; old pipe lists still work.
+- Features implemented in backend/app/features/: transaction table 18,000 x 11; wallet table 7,059 x 21; 10 and 17 default behavioural ML columns respectively. Separate context tables; explicit identifiers and availability flags. No silent legacy allocation estimates.
+- 7,059 unique wallets, 280 observed IPs; zero duplicate TXIDs, rejections, conservation failures, missing development feature values or selected-ML infinities. 4,253 repeated-address warning instances are preserved and handled correctly.
+- Full CSV/JSONL equivalence, seed determinism, input-order-independent features, and full-dataset health/upload API checks pass using FastAPI TestClient. No live listening-server test is claimed.
+- Latest measured stages: generation 7.91s, CSV ingestion 10.65s, feature extraction 5.42s; measurements under concurrent test load, not benchmarks.
+- Numerical/contextual quality diagnostics are saved; overlapping marginal distributions do not eliminate multivariate shortcuts. Data is synthetic, not calibrated to real traffic, no full UTXO ledger or GeoIP/ownership claims.
+- Whole-window wallet features are descriptive, not causal online features. Legacy exact flows may be unavailable. Coinbase/addressless outputs/XML remain unsupported.
+- AGENTS.md is populated; README.md and docs/dataset_v2.md, docs/features.md, docs/milestone_validation.md define commands, contracts, limitations and results. Machine-readable reports are in data/v2/.
+- No model training, graph analysis or frontend was implemented. Validation completed before the subsequent user-authorized commit/push; no merge was requested.
+
+Commands from repository root (PowerShell):
+
+```powershell
+.\venv\Scripts\python.exe -B scripts\validate_pipeline.py
+.\venv\Scripts\python.exe -B scripts\btc_synthetic_dataset_generator.py --schema-version 2 --seed 42 --both --out data/v2/development.csv
+.\venv\Scripts\python.exe -B scripts\btc_synthetic_dataset_generator.py --schema-version 2 --seed 42 --n-normal 850 --n-anomalous 150 --both --out data/v2/regression.csv
+Push-Location backend
+..\venv\Scripts\python.exe -B -m pytest -q -p no:cacheprovider
+..\venv\Scripts\python.exe -B -m app.features ../data/v2/development.csv --out-dir ../data/v2 --burst-window-seconds 60
+Pop-Location
+```
+
+Next milestone: Isolation Forest anomaly detection and leakage-safe evaluation, with train-only preprocessing, deliberate missingness handling, and time/scenario/actor separation. Define any wallet evaluation target separately; feature extraction must never read ground truth.
+
+---
+
+# Historical context (retained; superseded where noted above)
+
 # Bitcoin Transaction Analysis — Project Context
 
 ## Problem Statement

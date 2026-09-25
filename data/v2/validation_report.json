@@ -1,0 +1,126 @@
+{
+  "anomaly_distribution": {
+    "anomalous_port_usage": 405,
+    "dust_attack": 405,
+    "fee_anomaly": 270,
+    "geo_velocity_impossible_travel": 270,
+    "high_value_single_hop": 405,
+    "peeling_chain": 405,
+    "rapid_fire_layering": 540
+  },
+  "api": {
+    "csv": 200,
+    "health": 200,
+    "jsonl": 200,
+    "method": "FastAPI TestClient (in-process ASGI)",
+    "valid_rows": 18000
+  },
+  "canonical_infinite": 0,
+  "canonical_missing": {
+    "amount_btc": 0,
+    "asn": 0,
+    "asn_org": 0,
+    "country": 0,
+    "dst_ip": 0,
+    "dst_port": 0,
+    "fee_btc": 0,
+    "fee_rate_sat_vb": 0,
+    "input_addresses": 0,
+    "input_amounts": 0,
+    "num_inputs": 0,
+    "num_outputs": 0,
+    "output_addresses": 0,
+    "output_amounts": 0,
+    "source_row": 0,
+    "src_ip": 0,
+    "src_port": 0,
+    "timestamp": 0,
+    "txid": 0
+  },
+  "canonical_shape": [
+    18000,
+    19
+  ],
+  "csv_ingestion_seconds": 10.647002900001098,
+  "csv_jsonl_equivalent": true,
+  "duplicate_txids": 0,
+  "feature_order_independent": true,
+  "feature_seconds": 5.4182990999997855,
+  "generation_seconds": 7.908393899999282,
+  "ingestion_warnings": {
+    "DUPLICATE_ADDRESS_IN_LIST": 4253
+  },
+  "labels": {
+    "anomalous": 2700,
+    "normal": 15300
+  },
+  "legacy_sha256": "d854ff1bccbdc40ed1989f31bf94fdbe976750e641be0ae27d322e697217bfad",
+  "monetary_conservation_failures": 0,
+  "records": 18000,
+  "seed": 42,
+  "seed_deterministic": true,
+  "transaction_context_shape": [
+    18000,
+    10
+  ],
+  "transaction_features": {
+    "missing": {
+      "amount_btc": 0,
+      "day_of_week_utc": 0,
+      "fee_btc": 0,
+      "fee_rate_sat_vb": 0,
+      "fee_to_amount_ratio": 0,
+      "hour_of_day_utc": 0,
+      "input_output_count_ratio": 0,
+      "is_night_utc": 0,
+      "num_inputs": 0,
+      "num_outputs": 0,
+      "txid": 0
+    },
+    "selected_infinite": 0,
+    "selected_ml_columns": 10,
+    "selected_nan": 0,
+    "shape": [
+      18000,
+      11
+    ]
+  },
+  "unique_ips": 280,
+  "unique_wallets": 7059,
+  "wallet_context_shape": [
+    7059,
+    5
+  ],
+  "wallet_features": {
+    "missing": {
+      "active_duration_seconds": 0,
+      "average_transaction_amount": 0,
+      "fan_in": 0,
+      "fan_out": 0,
+      "incoming_amounts_available": 0,
+      "incoming_transaction_count": 0,
+      "max_transaction_amount": 0,
+      "max_tx_in_60s": 0,
+      "max_tx_in_window": 0,
+      "mean_inter_transaction_seconds": 0,
+      "median_inter_transaction_seconds": 0,
+      "median_transaction_amount": 0,
+      "min_transaction_amount": 0,
+      "outgoing_amounts_available": 0,
+      "outgoing_transaction_count": 0,
+      "total_received_btc": 0,
+      "total_sent_btc": 0,
+      "transaction_amount_std": 0,
+      "transaction_count": 0,
+      "unique_counterparties": 0,
+      "wallet_address": 0
+    },
+    "selected_infinite": 0,
+    "selected_ml_columns": 17,
+    "selected_nan": 0,
+    "shape": [
+      7059,
+      21
+    ]
+  }
+}

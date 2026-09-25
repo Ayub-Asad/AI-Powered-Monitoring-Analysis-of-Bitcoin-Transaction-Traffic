@@ -1,0 +1,1569 @@
+{
+  "anomalous_only_context_values_support_at_least_5": [],
+  "contextual_by_label": {
+    "asn": {
+      "64512": {
+        "anomalous": 5,
+        "normal": 37
+      },
+      "64513": {
+        "anomalous": 1,
+        "normal": 53
+      },
+      "64514": {
+        "anomalous": 8,
+        "normal": 65
+      },
+      "64515": {
+        "anomalous": 6,
+        "normal": 55
+      },
+      "64516": {
+        "anomalous": 7,
+        "normal": 44
+      },
+      "64517": {
+        "anomalous": 3,
+        "normal": 53
+      },
+      "64518": {
+        "anomalous": 4,
+        "normal": 56
+      },
+      "64519": {
+        "anomalous": 8,
+        "normal": 56
+      },
+      "64520": {
+        "anomalous": 5,
+        "normal": 55
+      },
+      "64521": {
+        "anomalous": 4,
+        "normal": 54
+      },
+      "64522": {
+        "anomalous": 7,
+        "normal": 51
+      },
+      "64523": {
+        "anomalous": 5,
+        "normal": 44
+      },
+      "64524": {
+        "anomalous": 4,
+        "normal": 49
+      },
+      "64525": {
+        "anomalous": 32,
+        "normal": 67
+      },
+      "64526": {
+        "anomalous": 5,
+        "normal": 55
+      },
+      "64527": {
+        "anomalous": 8,
+        "normal": 61
+      },
+      "64528": {
+        "anomalous": 5,
+        "normal": 58
+      },
+      "64529": {
+        "anomalous": 11,
+        "normal": 58
+      },
+      "64530": {
+        "anomalous": 1,
+        "normal": 43
+      },
+      "64531": {
+        "anomalous": 4,
+        "normal": 48
+      },
+      "64532": {
+        "anomalous": 36,
+        "normal": 53
+      },
+      "64533": {
+        "anomalous": 6,
+        "normal": 45
+      },
+      "64534": {
+        "anomalous": 3,
+        "normal": 61
+      },
+      "64535": {
+        "anomalous": 6,
+        "normal": 65
+      },
+      "64536": {
+        "anomalous": 5,
+        "normal": 44
+      },
+      "64537": {
+        "anomalous": 4,
+        "normal": 59
+      },
+      "64538": {
+        "anomalous": 5,
+        "normal": 58
+      },
+      "64539": {
+        "anomalous": 4,
+        "normal": 47
+      },
+      "64540": {
+        "anomalous": 4,
+        "normal": 56
+      },
+      "64541": {
+        "anomalous": 4,
+        "normal": 49
+      },
+      "64542": {
+        "anomalous": 6,
+        "normal": 72
+      },
+      "64543": {
+        "anomalous": 2,
+        "normal": 54
+      },
+      "64544": {
+        "anomalous": 3,
+        "normal": 59
+      },
+      "64545": {
+        "anomalous": 2,
+        "normal": 45
+      },
+      "64546": {
+        "anomalous": 4,
+        "normal": 52
+      },
+      "64547": {
+        "anomalous": 31,
+        "normal": 52
+      },
+      "64548": {
+        "anomalous": 8,
+        "normal": 59
+      },
+      "64549": {
+        "anomalous": 4,
+        "normal": 51
+      },
+      "64550": {
+        "anomalous": 6,
+        "normal": 49
+      },
+      "64551": {
+        "anomalous": 30,
+        "normal": 67
+      },
+      "64552": {
+        "anomalous": 6,
+        "normal": 48
+      },
+      "64553": {
+        "anomalous": 2,
+        "normal": 66
+      },
+      "64554": {
+        "anomalous": 6,
+        "normal": 55
+      },
+      "64555": {
+        "anomalous": 5,
+        "normal": 56
+      },
+      "64556": {
+        "anomalous": 33,
+        "normal": 55
+      },
+      "64557": {
+        "anomalous": 37,
+        "normal": 62
+      },
+      "64558": {
+        "anomalous": 5,
+        "normal": 47
+      },
+      "64559": {
+        "anomalous": 29,
+        "normal": 58
+      },
+      "64560": {
+        "anomalous": 4,
+        "normal": 51
+      },
+      "64561": {
+        "anomalous": 6,
+        "normal": 41
+      },
+      "64562": {
+        "anomalous": 5,
+        "normal": 61
+      },
+      "64563": {
+        "anomalous": 5,
+        "normal": 52
+      },
+      "64564": {
+        "anomalous": 5,
+        "normal": 71
+      },
+      "64565": {
+        "anomalous": 5,
+        "normal": 47
+      },
+      "64566": {
+        "anomalous": 8,
+        "normal": 46
+      },
+      "64567": {
+        "anomalous": 4,
+        "normal": 52
+      },
+      "64568": {
+        "anomalous": 6,
+        "normal": 55
+      },
+      "64569": {
+        "anomalous": 3,
+        "normal": 49
+      },
+      "64570": {
+        "anomalous": 2,
+        "normal": 40
+      },
+      "64571": {
+        "anomalous": 2,
+        "normal": 57
+      },
+      "64572": {
+        "anomalous": 4,
+        "normal": 49
+      },
+      "64573": {
+        "anomalous": 4,
+        "normal": 44
+      },
+      "64574": {
+        "anomalous": 4,
+        "normal": 43
+      },
+      "64575": {
+        "anomalous": 41,
+        "normal": 50
+      },
+      "64576": {
+        "anomalous": 2,
+        "normal": 66
+      },
+      "64577": {
+        "anomalous": 27,
+        "normal": 50
+      },
+      "64578": {
+        "anomalous": 8,
+        "normal": 59
+      },
+      "64579": {
+        "anomalous": 32,
+        "normal": 41
+      },
+      "64580": {
+        "anomalous": 6,
+        "normal": 48
+      },
+      "64581": {
+        "anomalous": 1,
+        "normal": 55
+      },
+      "64582": {
+        "anomalous": 28,
+        "normal": 60
+      },
+      "64583": {
+        "anomalous": 5,
+        "normal": 42
+      },
+      "64584": {
+        "anomalous": 3,
+        "normal": 46
+      },
+      "64585": {
+        "anomalous": 27,
+        "normal": 53
+      },
+      "64586": {
+        "anomalous": 2,
+        "normal": 65
+      },
+      "64587": {
+        "anomalous": 8,
+        "normal": 49
+      },
+      "64588": {
+        "anomalous": 3,
+        "normal": 55
+      },
+      "64589": {
+        "anomalous": 3,
+        "normal": 69
+      },
+      "64590": {
+        "anomalous": 6,
+        "normal": 48
+      },
+      "64591": {
+        "anomalous": 10,
+        "normal": 71
+      },
+      "64592": {
+        "anomalous": 2,
+        "normal": 54
+      },
+      "64593": {
+        "anomalous": 7,
+        "normal": 54
+      },
+      "64594": {
+        "anomalous": 5,
+        "normal": 63
+      },
+      "64595": {
+        "anomalous": 9,
+        "normal": 46
+      },
+      "64596": {
+        "anomalous": 3,
+        "normal": 63
+      },
+      "64597": {
+        "anomalous": 3,
+        "normal": 66
+      },
+      "64598": {
+        "anomalous": 36,
+        "normal": 49
+      },
+      "64599": {
+        "anomalous": 2,
+        "normal": 55
+      },
+      "64600": {
+        "anomalous": 4,
+        "normal": 57
+      },
+      "64601": {
+        "anomalous": 29,
+        "normal": 58
+      },
+      "64602": {
+        "anomalous": 16,
+        "normal": 58
+      },
+      "64603": {
+        "anomalous": 4,
+        "normal": 42
+      },
+      "64604": {
+        "anomalous": 2,
+        "normal": 70
+      },
+      "64605": {
+        "anomalous": 6,
+        "normal": 72
+      },
+      "64606": {
+        "anomalous": 8,
+        "normal": 56
+      },
+      "64607": {
+        "anomalous": 84,
+        "normal": 40
+      },
+      "64608": {
+        "anomalous": 6,
+        "normal": 63
+      },
+      "64609": {
+        "anomalous": 6,
+        "normal": 55
+      },
+      "64610": {
+        "anomalous": 5,
+        "normal": 41
+      },
+      "64611": {
+        "anomalous": 5,
+        "normal": 51
+      },
+      "64612": {
+        "anomalous": 3,
+        "normal": 55
+      },
+      "64613": {
+        "anomalous": 3,
+        "normal": 45
+      },
+      "64614": {
+        "anomalous": 6,
+        "normal": 56
+      },
+      "64615": {
+        "anomalous": 24,
+        "normal": 72
+      },
+      "64616": {
+        "anomalous": 28,
+        "normal": 68
+      },
+      "64617": {
+        "anomalous": 7,
+        "normal": 64
+      },
+      "64618": {
+        "anomalous": 5,
+        "normal": 53
+      },
+      "64619": {
+        "anomalous": 1,
+        "normal": 47
+      },
+      "64620": {
+        "anomalous": 7,
+        "normal": 63
+      },
+      "64621": {
+        "anomalous": 8,
+        "normal": 53
+      },
+      "64622": {
+        "anomalous": 6,
+        "normal": 53
+      },
+      "64623": {
+        "anomalous": 3,
+        "normal": 48
+      },
+      "64624": {
+        "anomalous": 5,
+        "normal": 65
+      },
+      "64625": {
+        "anomalous": 2,
+        "normal": 48
+      },
+      "64626": {
+        "anomalous": 8,
+        "normal": 50
+      },
+      "64627": {
+        "anomalous": 6,
+        "normal": 68
+      },
+      "64628": {
+        "anomalous": 6,
+        "normal": 36
+      },
+      "64629": {
+        "anomalous": 27,
+        "normal": 55
+      },
+      "64630": {
+        "anomalous": 5,
+        "normal": 59
+      },
+      "64631": {
+        "anomalous": 2,
+        "normal": 67
+      },
+      "64632": {
+        "anomalous": 4,
+        "normal": 57
+      },
+      "64633": {
+        "anomalous": 5,
+        "normal": 49
+      },
+      "64634": {
+        "anomalous": 37,
+        "normal": 48
+      },
+      "64635": {
+        "anomalous": 5,
+        "normal": 56
+      },
+      "64636": {
+        "anomalous": 5,
+        "normal": 49
+      },
+      "64637": {
+        "anomalous": 28,
+        "normal": 53
+      },
+      "64638": {
+        "anomalous": 4,
+        "normal": 57
+      },
+      "64639": {
+        "anomalous": 4,
+        "normal": 64
+      },
+      "64640": {
+        "anomalous": 8,
+        "normal": 57
+      },
+      "64641": {
+        "anomalous": 1,
+        "normal": 61
+      },
+      "64642": {
+        "anomalous": 7,
+        "normal": 56
+      },
+      "64643": {
+        "anomalous": 2,
+        "normal": 65
+      },
+      "64644": {
+        "anomalous": 2,
+        "normal": 58
+      },
+      "64645": {
+        "anomalous": 86,
+        "normal": 50
+      },
+      "64646": {
+        "anomalous": 3,
+        "normal": 59
+      },
+      "64647": {
+        "anomalous": 4,
+        "normal": 46
+      },
+      "64648": {
+        "anomalous": 8,
+        "normal": 41
+      },
+      "64649": {
+        "anomalous": 3,
+        "normal": 49
+      },
+      "64650": {
+        "anomalous": 7,
+        "normal": 38
+      },
+      "64651": {
+        "anomalous": 3,
+        "normal": 57
+      },
+      "64652": {
+        "anomalous": 9,
+        "normal": 50
+      },
+      "64653": {
+        "anomalous": 4,
+        "normal": 55
+      },
+      "64654": {
+        "anomalous": 4,
+        "normal": 53
+      },
+      "64655": {
+        "anomalous": 3,
+        "normal": 50
+      },
+      "64656": {
+        "anomalous": 6,
+        "normal": 45
+      },
+      "64657": {
+        "anomalous": 66,
+        "normal": 69
+      },
+      "64658": {
+        "anomalous": 30,
+        "normal": 61
+      },
+      "64659": {
+        "anomalous": 8,
+        "normal": 49
+      },
+      "64660": {
+        "anomalous": 3,
+        "normal": 64
+      },
+      "64661": {
+        "anomalous": 5,
+        "normal": 49
+      },
+      "64662": {
+        "anomalous": 6,
+        "normal": 60
+      },
+      "64663": {
+        "anomalous": 3,
+        "normal": 40
+      },
+      "64664": {
+        "anomalous": 4,
+        "normal": 52
+      },
+      "64665": {
+        "anomalous": 5,
+        "normal": 35
+      },
+      "64666": {
+        "anomalous": 87,
+        "normal": 61
+      },
+      "64667": {
+        "anomalous": 4,
+        "normal": 45
+      },
+      "64668": {
+        "anomalous": 87,
+        "normal": 60
+      },
+      "64669": {
+        "anomalous": 3,
+        "normal": 54
+      },
+      "64670": {
+        "anomalous": 3,
+        "normal": 67
+      },
+      "64671": {
+        "anomalous": 6,
+        "normal": 68
+      },
+      "64672": {
+        "anomalous": 4,
+        "normal": 56
+      },
+      "64673": {
+        "anomalous": 7,
+        "normal": 52
+      },
+      "64674": {
+        "anomalous": 33,
+        "normal": 51
+      },
+      "64675": {
+        "anomalous": 5,
+        "normal": 45
+      },
+      "64676": {
+        "anomalous": 7,
+        "normal": 47
+      },
+      "64677": {
+        "anomalous": 5,
+        "normal": 40
+      },
+      "64678": {
+        "anomalous": 5,
+        "normal": 58
+      },
+      "64679": {
+        "anomalous": 5,
+        "normal": 67
+      },
+      "64680": {
+        "anomalous": 27,
+        "normal": 61
+      },
+      "64681": {
+        "anomalous": 4,
+        "normal": 57
+      },
+      "64682": {
+        "anomalous": 4,
+        "normal": 61
+      },
+      "64683": {
+        "anomalous": 5,
+        "normal": 72
+      },
+      "64684": {
+        "anomalous": 4,
+        "normal": 60
+      },
+      "64685": {
+        "anomalous": 30,
+        "normal": 56
+      },
+      "64686": {
+        "anomalous": 2,
+        "normal": 45
+      },
+      "64687": {
+        "anomalous": 8,
+        "normal": 55
+      },
+      "64688": {
+        "anomalous": 3,
+        "normal": 43
+      },
+      "64689": {
+        "anomalous": 3,
+        "normal": 63
+      },
+      "64690": {
+        "anomalous": 6,
+        "normal": 48
+      },
+      "64691": {
+        "anomalous": 4,
+        "normal": 56
+      },
+      "64692": {
+        "anomalous": 3,
+        "normal": 61
+      },
+      "64693": {
+        "anomalous": 5,
+        "normal": 61
+      },
+      "64694": {
+        "anomalous": 3,
+        "normal": 64
+      },
+      "64695": {
+        "anomalous": 3,
+        "normal": 67
+      },
+      "64696": {
+        "anomalous": 5,
+        "normal": 55
+      },
+      "64697": {
+        "anomalous": 4,
+        "normal": 63
+      },
+      "64698": {
+        "anomalous": 10,
+        "normal": 65
+      },
+      "64699": {
+        "anomalous": 7,
+        "normal": 50
+      },
+      "64700": {
+        "anomalous": 5,
+        "normal": 67
+      },
+      "64701": {
+        "anomalous": 3,
+        "normal": 55
+      },
+      "64702": {
+        "anomalous": 4,
+        "normal": 58
+      },
+      "64703": {
+        "anomalous": 2,
+        "normal": 72
+      },
+      "64704": {
+        "anomalous": 5,
+        "normal": 70
+      },
+      "64705": {
+        "anomalous": 7,
+        "normal": 66
+      },
+      "64706": {
+        "anomalous": 7,
+        "normal": 42
+      },
+      "64707": {
+        "anomalous": 4,
+        "normal": 62
+      },
+      "64708": {
+        "anomalous": 3,
+        "normal": 64
+      },
+      "64709": {
+        "anomalous": 5,
+        "normal": 51
+      },
+      "64710": {
+        "anomalous": 5,
+        "normal": 42
+      },
+      "64711": {
+        "anomalous": 2,
+        "normal": 54
+      },
+      "64712": {
+        "anomalous": 5,
+        "normal": 42
+      },
+      "64713": {
+        "anomalous": 7,
+        "normal": 48
+      },
+      "64714": {
+        "anomalous": 35,
+        "normal": 51
+      },
+      "64715": {
+        "anomalous": 5,
+        "normal": 53
+      },
+      "64716": {
+        "anomalous": 4,
+        "normal": 50
+      },
+      "64717": {
+        "anomalous": 34,
+        "normal": 57
+      },
+      "64718": {
+        "anomalous": 4,
+        "normal": 54
+      },
+      "64719": {
+        "anomalous": 5,
+        "normal": 61
+      },
+      "64720": {
+        "anomalous": 5,
+        "normal": 43
+      },
+      "64721": {
+        "anomalous": 6,
+        "normal": 72
+      },
+      "64722": {
+        "anomalous": 5,
+        "normal": 58
+      },
+      "64723": {
+        "anomalous": 1,
+        "normal": 49
+      },
+      "64724": {
+        "anomalous": 6,
+        "normal": 51
+      },
+      "64725": {
+        "anomalous": 2,
+        "normal": 45
+      },
+      "64726": {
+        "anomalous": 6,
+        "normal": 54
+      },
+      "64727": {
+        "anomalous": 7,
+        "normal": 67
+      },
+      "64728": {
+        "anomalous": 3,
+        "normal": 49
+      },
+      "64729": {
+        "anomalous": 7,
+        "normal": 58
+      },
+      "64730": {
+        "anomalous": 4,
+        "normal": 54
+      },
+      "64731": {
+        "anomalous": 37,
+        "normal": 54
+      },
+      "64732": {
+        "anomalous": 39,
+        "normal": 53
+      },
+      "64733": {
+        "anomalous": 2,
+        "normal": 45
+      },
+      "64734": {
+        "anomalous": 7,
+        "normal": 63
+      },
+      "64735": {
+        "anomalous": 1,
+        "normal": 64
+      },
+      "64736": {
+        "anomalous": 85,
+        "normal": 53
+      },
+      "64737": {
+        "anomalous": 3,
+        "normal": 48
+      },
+      "64738": {
+        "anomalous": 8,
+        "normal": 47
+      },
+      "64739": {
+        "anomalous": 32,
+        "normal": 46
+      },
+      "64740": {
+        "anomalous": 28,
+        "normal": 63
+      },
+      "64741": {
+        "anomalous": 7,
+        "normal": 44
+      },
+      "64742": {
+        "anomalous": 7,
+        "normal": 67
+      },
+      "64743": {
+        "anomalous": 38,
+        "normal": 41
+      },
+      "64744": {
+        "anomalous": 6,
+        "normal": 55
+      },
+      "64745": {
+        "anomalous": 3,
+        "normal": 64
+      },
+      "64746": {
+        "anomalous": 4,
+        "normal": 59
+      },
+      "64747": {
+        "anomalous": 3,
+        "normal": 58
+      },
+      "64748": {
+        "anomalous": 31,
+        "normal": 66
+      },
+      "64749": {
+        "anomalous": 5,
+        "normal": 48
+      },
+      "64750": {
+        "anomalous": 6,
+        "normal": 51
+      },
+      "64751": {
+        "anomalous": 4,
+        "normal": 59
+      },
+      "64752": {
+        "anomalous": 4,
+        "normal": 52
+      },
+      "64753": {
+        "anomalous": 6,
+        "normal": 57
+      },
+      "64754": {
+        "anomalous": 4,
+        "normal": 62
+      },
+      "64755": {
+        "anomalous": 1,
+        "normal": 45
+      },
+      "64756": {
+        "anomalous": 4,
+        "normal": 47
+      },
+      "64757": {
+        "anomalous": 4,
+        "normal": 59
+      },
+      "64758": {
+        "anomalous": 3,
+        "normal": 48
+      },
+      "64759": {
+        "anomalous": 2,
+        "normal": 44
+      },
+      "64760": {
+        "anomalous": 9,
+        "normal": 60
+      },
+      "64761": {
+        "anomalous": 7,
+        "normal": 70
+      },
+      "64762": {
+        "anomalous": 9,
+        "normal": 51
+      },
+      "64763": {
+        "anomalous": 5,
+        "normal": 65
+      },
+      "64764": {
+        "anomalous": 5,
+        "normal": 46
+      },
+      "64765": {
+        "anomalous": 2,
+        "normal": 48
+      },
+      "64766": {
+        "anomalous": 28,
+        "normal": 45
+      },
+      "64767": {
+        "anomalous": 6,
+        "normal": 40
+      },
+      "64768": {
+        "anomalous": 3,
+        "normal": 57
+      },
+      "64769": {
+        "anomalous": 3,
+        "normal": 60
+      },
+      "64770": {
+        "anomalous": 5,
+        "normal": 64
+      },
+      "64771": {
+        "anomalous": 3,
+        "normal": 64
+      },
+      "64772": {
+        "anomalous": 4,
+        "normal": 36
+      },
+      "64773": {
+        "anomalous": 35,
+        "normal": 52
+      },
+      "64774": {
+        "anomalous": 2,
+        "normal": 68
+      },
+      "64775": {
+        "anomalous": 7,
+        "normal": 42
+      },
+      "64776": {
+        "anomalous": 2,
+        "normal": 57
+      },
+      "64777": {
+        "anomalous": 7,
+        "normal": 46
+      },
+      "64778": {
+        "anomalous": 5,
+        "normal": 48
+      },
+      "64779": {
+        "anomalous": 6,
+        "normal": 53
+      },
+      "64780": {
+        "anomalous": 6,
+        "normal": 70
+      },
+      "64781": {
+        "anomalous": 7,
+        "normal": 57
+      },
+      "64782": {
+        "anomalous": 7,
+        "normal": 47
+      },
+      "64783": {
+        "anomalous": 6,
+        "normal": 73
+      },
+      "64784": {
+        "anomalous": 8,
+        "normal": 65
+      },
+      "64785": {
+        "anomalous": 7,
+        "normal": 52
+      },
+      "64786": {
+        "anomalous": 1,
+        "normal": 51
+      },
+      "64787": {
+        "anomalous": 3,
+        "normal": 58
+      },
+      "64788": {
+        "anomalous": 6,
+        "normal": 55
+      },
+      "64789": {
+        "anomalous": 6,
+        "normal": 53
+      },
+      "64790": {
+        "anomalous": 4,
+        "normal": 51
+      },
+      "64791": {
+        "anomalous": 4,
+        "normal": 50
+      }
+    },
+    "country": {
+      "AE": {
+        "anomalous": 135,
+        "normal": 1059
+      },
+      "BR": {
+        "anomalous": 284,
+        "normal": 1074
+      },
+      "CN": {
+        "anomalous": 108,
+        "normal": 1099
+      },
+      "DE": {
+        "anomalous": 76,
+        "normal": 1071
+      },
+      "GB": {
+        "anomalous": 209,
+        "normal": 1125
+      },
+      "IN": {
+        "anomalous": 272,
+        "normal": 1127
+      },
+      "IR": {
+        "anomalous": 201,
+        "normal": 1115
+      },
+      "KP": {
+        "anomalous": 181,
+        "normal": 1110
+      },
+      "NG": {
+        "anomalous": 232,
+        "normal": 1041
+      },
+      "NL": {
+        "anomalous": 269,
+        "normal": 1083
+      },
+      "PA": {
+        "anomalous": 139,
+        "normal": 1116
+      },
+      "RU": {
+        "anomalous": 121,
+        "normal": 1074
+      },
+      "SG": {
+        "anomalous": 167,
+        "normal": 1106
+      },
+      "US": {
+        "anomalous": 306,
+        "normal": 1100
+      }
+    },
+    "date_utc": {
+      "2025-01-01": {
+        "anomalous": 38,
+        "normal": 283
+      },
+      "2025-01-02": {
+        "anomalous": 111,
+        "normal": 862
+      },
+      "2025-01-03": {
+        "anomalous": 263,
+        "normal": 1473
+      },
+      "2025-01-04": {
+        "anomalous": 410,
+        "normal": 1981
+      },
+      "2025-01-05": {
+        "anomalous": 381,
+        "normal": 1774
+      },
+      "2025-01-06": {
+        "anomalous": 393,
+        "normal": 2076
+      },
+      "2025-01-07": {
+        "anomalous": 334,
+        "normal": 1901
+      },
+      "2025-01-08": {
+        "anomalous": 205,
+        "normal": 1800
+      },
+      "2025-01-09": {
+        "anomalous": 231,
+        "normal": 1158
+      },
+      "2025-01-10": {
+        "anomalous": 97,
+        "normal": 862
+      },
+      "2025-01-11": {
+        "anomalous": 48,
+        "normal": 481
+      },
+      "2025-01-12": {
+        "anomalous": 142,
+        "normal": 484
+      },
+      "2025-01-13": {
+        "anomalous": 43,
+        "normal": 153
+      },
+      "2025-01-14": {
+        "anomalous": 4,
+        "normal": 12
+      }
+    },
+    "dst_port": {
+      "1337": {
+        "anomalous": 83,
+        "normal": 249
+      },
+      "18333": {
+        "anomalous": 1015,
+        "normal": 6836
+      },
+      "22": {
+        "anomalous": 85,
+        "normal": 267
+      },
+      "31337": {
+        "anomalous": 109,
+        "normal": 274
+      },
+      "443": {
+        "anomalous": 99,
+        "normal": 260
+      },
+      "4444": {
+        "anomalous": 99,
+        "normal": 280
+      },
+      "6667": {
+        "anomalous": 112,
+        "normal": 271
+      },
+      "8333": {
+        "anomalous": 988,
+        "normal": 6586
+      },
+      "9050": {
+        "anomalous": 110,
+        "normal": 277
+      }
+    },
+    "hour_utc": {
+      "0": {
+        "anomalous": 126,
+        "normal": 562
+      },
+      "1": {
+        "anomalous": 100,
+        "normal": 563
+      },
+      "10": {
+        "anomalous": 104,
+        "normal": 663
+      },
+      "11": {
+        "anomalous": 132,
+        "normal": 729
+      },
+      "12": {
+        "anomalous": 154,
+        "normal": 584
+      },
+      "13": {
+        "anomalous": 112,
+        "normal": 679
+      },
+      "14": {
+        "anomalous": 70,
+        "normal": 636
+      },
+      "15": {
+        "anomalous": 62,
+        "normal": 596
+      },
+      "16": {
+        "anomalous": 54,
+        "normal": 537
+      },
+      "17": {
+        "anomalous": 53,
+        "normal": 592
+      },
+      "18": {
+        "anomalous": 130,
+        "normal": 532
+      },
+      "19": {
+        "anomalous": 92,
+        "normal": 553
+      },
+      "2": {
+        "anomalous": 163,
+        "normal": 694
+      },
+      "20": {
+        "anomalous": 84,
+        "normal": 785
+      },
+      "21": {
+        "anomalous": 177,
+        "normal": 740
+      },
+      "22": {
+        "anomalous": 108,
+        "normal": 652
+      },
+      "23": {
+        "anomalous": 59,
+        "normal": 534
+      },
+      "3": {
+        "anomalous": 139,
+        "normal": 532
+      },
+      "4": {
+        "anomalous": 146,
+        "normal": 772
+      },
+      "5": {
+        "anomalous": 229,
+        "normal": 695
+      },
+      "6": {
+        "anomalous": 98,
+        "normal": 636
+      },
+      "7": {
+        "anomalous": 134,
+        "normal": 699
+      },
+      "8": {
+        "anomalous": 94,
+        "normal": 713
+      },
+      "9": {
+        "anomalous": 80,
+        "normal": 622
+      }
+    },
+    "src_port_class": {
+      "1337": {
+        "anomalous": 55,
+        "normal": 143
+      },
+      "22": {
+        "anomalous": 58,
+        "normal": 137
+      },
+      "31337": {
+        "anomalous": 40,
+        "normal": 131
+      },
+      "443": {
+        "anomalous": 46,
+        "normal": 125
+      },
+      "4444": {
+        "anomalous": 49,
+        "normal": 137
+      },
+      "6667": {
+        "anomalous": 48,
+        "normal": 129
+      },
+      "9050": {
+        "anomalous": 53,
+        "normal": 136
+      },
+      "ephemeral": {
+        "anomalous": 2351,
+        "normal": 14362
+      }
+    }
+  },
+  "interpretation": "Descriptive synthetic-data diagnostics, not held-out model performance. Overlap does not establish realism or eliminate multivariate shortcuts.",
+  "limitations": [
+    "Injected chain and dust structures remain deliberately distinctive.",
+    "Rapid layering can remain distinctive through fee/value combinations.",
+    "Port and geo scenarios rely on investigative context excluded from default ML features.",
+    "No real GeoIP, wallet ownership, full UTXO history or real-world traffic calibration."
+  ],
+  "numerical_by_label": {
+    "amount_btc": {
+      "anomalous": {
+        "0": 5.97e-06,
+        "0.01": 1.0045900000000002e-05,
+        "0.1": 4.4449e-05,
+        "0.5": 0.089115365,
+        "0.9": 263.600632987,
+        "0.99": 566.5742881060999,
+        "1": 599.67843372
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.6154139433551198,
+      "normal": {
+        "0": 5.47e-06,
+        "0.01": 1.06596e-05,
+        "0.1": 0.0031469580000000005,
+        "0.5": 0.075970765,
+        "0.9": 1.8853714170000002,
+        "0.99": 522.3522644241001,
+        "1": 598.96752614
+      }
+    },
+    "day_utc": {
+      "anomalous": {
+        "0": 0.0,
+        "0.01": 0.0,
+        "0.1": 0.0,
+        "0.5": 3.0,
+        "0.9": 6.0,
+        "0.99": 6.0,
+        "1": 6.0
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.5274183006535947,
+      "normal": {
+        "0": 0.0,
+        "0.01": 0.0,
+        "0.1": 0.0,
+        "0.5": 3.0,
+        "0.9": 6.0,
+        "0.99": 6.0,
+        "1": 6.0
+      }
+    },
+    "fee_btc": {
+      "anomalous": {
+        "0": 1.4e-07,
+        "0.01": 4.2990000000000006e-07,
+        "0.1": 3.0790000000000005e-06,
+        "0.5": 6.8605e-05,
+        "0.9": 0.001438592999999999,
+        "0.99": 0.0069746075999999975,
+        "1": 0.00976503
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.568474945533769,
+      "normal": {
+        "0": 1.3e-07,
+        "0.01": 6.7e-07,
+        "0.1": 6.399000000000001e-06,
+        "0.5": 8.9385e-05,
+        "0.9": 0.00036414800000000066,
+        "0.99": 0.007441891100000009,
+        "1": 0.01048094
+      }
+    },
+    "fee_rate_sat_vb": {
+      "anomalous": {
+        "0": 0.05,
+        "0.01": 0.1799,
+        "0.1": 1.2980000000000007,
+        "0.5": 29.270000000000003,
+        "0.9": 559.5409999999996,
+        "0.99": 2698.3575999999994,
+        "1": 2997.84
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.5417320261437909,
+      "normal": {
+        "0": 0.05,
+        "0.01": 0.25,
+        "0.1": 1.989000000000001,
+        "0.5": 33.98,
+        "0.9": 131.31900000000041,
+        "0.99": 2725.4423,
+        "1": 2999.21
+      }
+    },
+    "hour_utc": {
+      "anomalous": {
+        "0": 0.0,
+        "0.01": 0.0,
+        "0.1": 2.0,
+        "0.5": 10.0,
+        "0.9": 21.0,
+        "0.99": 23.0,
+        "1": 23.0
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.5424509803921568,
+      "normal": {
+        "0": 0.0,
+        "0.01": 0.0,
+        "0.1": 2.0,
+        "0.5": 11.0,
+        "0.9": 21.0,
+        "0.99": 23.0,
+        "1": 23.0
+      }
+    },
+    "num_inputs": {
+      "anomalous": {
+        "0": 1.0,
+        "0.01": 1.0,
+        "0.1": 1.0,
+        "0.5": 1.0,
+        "0.9": 3.0,
+        "0.99": 3.0,
+        "1": 3.0
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.6280283224400871,
+      "normal": {
+        "0": 1.0,
+        "0.01": 1.0,
+        "0.1": 1.0,
+        "0.5": 2.0,
+        "0.9": 3.0,
+        "0.99": 3.0,
+        "1": 3.0
+      }
+    },
+    "num_outputs": {
+      "anomalous": {
+        "0": 1.0,
+        "0.01": 1.0,
+        "0.1": 1.0,
+        "0.5": 2.0,
+        "0.9": 3.0,
+        "0.99": 3.0,
+        "1": 3.0
+      },
+      "best_single_threshold_balanced_accuracy_descriptive_only": 0.6172875816993464,
+      "normal": {
+        "0": 1.0,
+        "0.01": 1.0,
+        "0.1": 1.0,
+        "0.5": 2.0,
+        "0.9": 3.0,
+        "0.99": 3.0,
+        "1": 3.0
+      }
+    }
+  }
+}

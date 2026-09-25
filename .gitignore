@@ -1,0 +1,45 @@
+# Python environments and generated caches
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Local secrets and environment configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+
+# Test, coverage, build and packaging output
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.egg-info/
+build/
+dist/
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Runtime logs and scratch files
+*.log
+*.tmp
+*.temp
+
+# Optional v1 reproduction output; preserve the original and v2 deliverables
+/data/regenerated_v1.csv

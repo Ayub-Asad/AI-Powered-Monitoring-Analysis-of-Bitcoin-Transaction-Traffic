@@ -39,12 +39,14 @@ CANONICAL_FIELDS: Tuple[FieldSpec, ...] = (
     FieldSpec("output_addresses", "list[str]", True, "Output wallet addresses, order preserved"),
     FieldSpec("num_inputs", "int64", False, "Input count (derived from the list if absent)"),
     FieldSpec("num_outputs", "int64", False, "Output count (derived from the list if absent)"),
-    FieldSpec("amount_btc", "float64", True, "Total amount in BTC, > 0, 8 dp"),
+    FieldSpec("amount_btc", "float64", True, "BTC total > 0; v2 sum of outputs including change; legacy source meaning"),
     FieldSpec("fee_btc", "float64", True, "Miner fee in BTC, >= 0, 8 dp"),
     FieldSpec("fee_rate_sat_vb", "float64", False, "Fee rate sat/vB (NaN if unknown)"),
-    FieldSpec("country", "str", False, "ISO-3166 alpha-2 country of src_ip (null if unknown)"),
-    FieldSpec("asn", "Int64", False, "Autonomous System Number of src_ip (null if unknown)"),
+    FieldSpec("country", "str", False, "Reported/synthetic ISO-3166 alpha-2 country associated with src_ip (null if unknown)"),
+    FieldSpec("asn", "Int64", False, "Reported/synthetic Autonomous System Number associated with src_ip (null if unknown)"),
     FieldSpec("asn_org", "str", False, "ASN organisation name (null if unknown)"),
+    FieldSpec("input_amounts", "list[float]", False, "BTC per input entry; paired with output_amounts; null for legacy"),
+    FieldSpec("output_amounts", "list[float]", False, "BTC per output entry, including change; null for legacy"),
 )
 
 CANONICAL_NAMES: Tuple[str, ...] = tuple(f.name for f in CANONICAL_FIELDS)

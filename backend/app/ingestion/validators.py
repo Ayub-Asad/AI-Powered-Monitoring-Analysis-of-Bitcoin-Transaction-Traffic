@@ -7,9 +7,12 @@ is unusable. They are pure and know nothing about files or rows.
 from __future__ import annotations
 
 import ipaddress
+import json
+from ..money import to_satoshis, from_satoshis
 import math
 import re
 from datetime import datetime, timedelta, timezone
+from decimal import Decimal
 from typing import Any, List, Optional, Tuple
 
 from .errors import Code, FieldError, short_repr
@@ -145,7 +148,10 @@ def normalize_timestamp(value: Any) -> Tuple[datetime, bool]:
     if isinstance(value, datetime):
         parsed = value
     elif isinstance(value, (int, float)):
-        parsed = _from_epoch(float(value))
+        try:
+            parsed = _from_epoch(float(value))
+        except OverflowError:
+            raise FieldError(Code.INVALID_TIMESTAMP, "epoch value is too large")
     else:
         text = str(value).strip()
         if _EPOCH_RE.fullmatch(text):
@@ -161,7 +167,10 @@ def normalize_timestamp(value: Any) -> Tuple[datetime, bool]:
                 )
 
     was_naive = parsed.tzinfo is None
-    parsed = parsed.replace(tzinfo=timezone.utc) if was_naive else parsed.astimezone(timezone.utc)
+    try:
+        parsed = parsed.replace(tzinfo=timezone.utc) if was_naive else parsed.astimezone(timezone.utc)
+    except (OverflowError, ValueError):
+        raise FieldError(Code.INVALID_TIMESTAMP, "timestamp cannot be represented in UTC")
 
     if parsed < BITCOIN_GENESIS:
         raise FieldError(Code.OUT_OF_RANGE, f"timestamp {parsed.isoformat()} is before Bitcoin genesis (2009-01-03)")
@@ -180,21 +189,26 @@ def normalize_amount_btc(value: Any) -> float:
 
 
 def normalize_fee_btc(value: Any) -> float:
-    number = round(_to_float(value, Code.INVALID_NUMBER, "fee_btc"), 8)
-    if number < 0:
+    number = _to_float(value, Code.INVALID_NUMBER, "fee_btc")
+    if number < 0 or Decimal(str(value)) < 0:
         raise FieldError(Code.OUT_OF_RANGE, f"fee_btc must be >= 0, got {short_repr(value)!r}")
     if number > MAX_BTC:
         raise FieldError(Code.OUT_OF_RANGE, f"fee_btc exceeds the 21,000,000 BTC supply cap: {short_repr(value)!r}")
-    return number
+    return round(number, 8)
 
 
-def normalize_address_list(value: Any) -> List[str]:
+def normalize_address_list(value: Any, strict: bool = False) -> List[str]:
     """Pipe-separated string (or an already-parsed list) -> list of addresses.
 
     Order and repeats are preserved (repeats are meaningful: e.g. a peeling
     chain paying the same address twice). Empty items from stray pipes are
     dropped.
     """
+    if isinstance(value, str) and value.strip().startswith("["):
+        try:
+            value = json.loads(value)
+        except (ValueError, TypeError):
+            raise FieldError(Code.INVALID_ADDRESS, "invalid JSON address array")
     if isinstance(value, (list, tuple)):
         items = list(value)
     elif isinstance(value, str):
@@ -205,6 +219,8 @@ def normalize_address_list(value: Any) -> List[str]:
     addresses: List[str] = []
     for item in items:
         if item is None or (isinstance(item, str) and not item.strip()):
+            if strict:
+                raise FieldError(Code.INVALID_ADDRESS, "v2 address entries must not be empty")
             continue
         if not isinstance(item, str):
             raise FieldError(Code.INVALID_ADDRESS, f"address must be a string, got {type(item).__name__}")
@@ -279,3 +295,17 @@ def normalize_text(value: Any) -> Optional[str]:
     _reject_container(value, Code.INVALID_NUMBER, "text")
     text = str(value).strip()
     return text or None
+
+
+def normalize_amount_list(value):
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except (ValueError, TypeError):
+            raise FieldError(Code.INVALID_AMOUNT_ARRAY, "amount array must be JSON encoded")
+    if not isinstance(value, list) or not value:
+        raise FieldError(Code.INVALID_AMOUNT_ARRAY, "amount array must be a nonempty list")
+    try:
+        return [from_satoshis(to_satoshis(item)) for item in value]
+    except ValueError as exc:
+        raise FieldError(Code.INVALID_AMOUNT_ARRAY, str(exc))

@@ -34,6 +34,17 @@ class TestAPI(unittest.TestCase):
         r = self.client.post("/ingest", files={"file": ("d.xlsx", b"x")})
         self.assertEqual(r.status_code, 415)
 
+    def test_v2_jsonl_and_invalid_conservation(self):
+        import json
+        from .test_dataset_v2 import v2row
+        valid = json.dumps(v2row()).encode()
+        r = self.client.post("/ingest", files={"file": ("v2.jsonl", valid)})
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.json()["summary"]["valid_rows"], 1)
+        invalid = json.dumps(v2row(input_amounts=[0.4])).encode()
+        r = self.client.post("/ingest", files={"file": ("v2.jsonl", invalid)})
+        self.assertEqual(r.status_code, 422)
+
     def test_ingest_missing_file_field(self):
         self.assertEqual(self.client.post("/ingest").status_code, 422)
 

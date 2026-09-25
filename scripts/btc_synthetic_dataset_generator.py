@@ -22,8 +22,10 @@ Fields produced per record:
     amount_btc        - total transacted amount (BTC)
     fee_btc           - miner fee (BTC)
     fee_rate_sat_vb   - approximate fee rate (sat/vByte)
-    country           - ISO country code associated with src_ip
-    asn               - Autonomous System Number associated with src_ip
+    country           - synthetic ISO country code (chosen independently of
+                         src_ip's actual address block; do not expect a real
+                         GeoIP lookup on src_ip to reproduce this value)
+    asn               - synthetic ASN paired with `country` above (same caveat)
     asn_org           - human-readable ASN organisation name
     label             - "normal" or "anomalous"
     anomaly_type      - specific anomaly category (empty for normal rows)
@@ -182,6 +184,11 @@ class BitcoinDatasetGenerator:
         ts = self.start_time + timedelta(seconds=offset_seconds)
         return ts.strftime("%Y-%m-%dT%H:%M:%SZ")
 
+    def _estimate_vbytes(self, n_in: int, n_out: int) -> int:
+        """Rough P2WPKH-ish virtual size estimate, shared by every generator
+        so fee_btc and fee_rate_sat_vb stay mutually consistent."""
+        return 140 + 40 * n_in + 30 * n_out
+
     # ---- normal traffic ---------------------------------------------------
 
     def generate_normal(self, n: int) -> List[Transaction]:
@@ -207,7 +214,7 @@ class BitcoinDatasetGenerator:
 
             amount = round(max(0.0001, self.rng.lognormvariate(-2.5, 1.2)), 8)
             fee_rate = round(self.rng.uniform(8, 40), 2)          # sat/vByte, typical
-            vbytes = 140 + 40 * n_in + 30 * n_out
+            vbytes = self._estimate_vbytes(n_in, n_out)
             fee_btc = round((fee_rate * vbytes) / 1e8, 8)
 
             rec = Transaction(
@@ -271,6 +278,7 @@ class BitcoinDatasetGenerator:
                 next_hop = self._make_address()
                 amount = round(self.rng.uniform(0.0005, 0.01), 8)
                 fee_btc = round(amount * self.rng.uniform(0.0005, 0.002), 8)
+                fee_rate = round((fee_btc * 1e8) / self._estimate_vbytes(1, 1), 2)
                 records.append(Transaction(
                     timestamp=self._timestamp_at(t),
                     src_ip=src_ip, dst_ip=dst_ip,
@@ -281,7 +289,7 @@ class BitcoinDatasetGenerator:
                     output_addresses=next_hop,
                     num_inputs=1, num_outputs=1,
                     amount_btc=amount, fee_btc=fee_btc,
-                    fee_rate_sat_vb=round(self.rng.uniform(1, 5), 2),
+                    fee_rate_sat_vb=fee_rate,
                     country=country, asn=asn, asn_org=org,
                     label="anomalous", anomaly_type="rapid_fire_layering",
                 ))
@@ -299,6 +307,8 @@ class BitcoinDatasetGenerator:
             for out_addr in outputs:
                 t += self.rng.uniform(0.01, 0.2)
                 dust = round(self.rng.uniform(0.00000546, 0.00003), 8)  # near dust limit
+                fee_btc = round(dust * 0.3, 8)
+                fee_rate = round((fee_btc * 1e8) / self._estimate_vbytes(1, 1), 2)
                 records.append(Transaction(
                     timestamp=self._timestamp_at(t),
                     src_ip=src_ip, dst_ip=self._random_public_ip(country),
@@ -309,8 +319,8 @@ class BitcoinDatasetGenerator:
                     output_addresses=out_addr,
                     num_inputs=1, num_outputs=1,
                     amount_btc=dust,
-                    fee_btc=round(dust * 0.3, 8),
-                    fee_rate_sat_vb=round(self.rng.uniform(1, 10), 2),
+                    fee_btc=fee_btc,
+                    fee_rate_sat_vb=fee_rate,
                     country=country, asn=asn, asn_org=org,
                     label="anomalous", anomaly_type="dust_attack",
                 ))
@@ -323,6 +333,9 @@ class BitcoinDatasetGenerator:
             country, asn, org = self._pick_country_asn(high_risk_bias=0.85)
             src_country, s_asn, s_org = self._pick_country_asn(high_risk_bias=0.1)
             amount = round(self.rng.uniform(20, 500), 8)  # very large
+            n_in = self.rng.randint(1, 4)  # single draw, reused below (was two independent draws)
+            fee_btc = round(self.rng.uniform(0.0001, 0.0005), 8)  # oddly low fee for the value
+            fee_rate = round((fee_btc * 1e8) / self._estimate_vbytes(n_in, 1), 2)
             records.append(Transaction(
                 timestamp=self._timestamp_at(t),
                 src_ip=self._random_public_ip(src_country),
@@ -330,12 +343,12 @@ class BitcoinDatasetGenerator:
                 src_port=self.rng.randint(1024, 65535),
                 dst_port=self.rng.choice(BITCOIN_PORTS_NORMAL),
                 txid=self._make_txid(),
-                input_addresses="|".join(self._sample_addresses(self.rng.randint(1, 4))),
+                input_addresses="|".join(self._sample_addresses(n_in)),
                 output_addresses=self._make_address(),
-                num_inputs=self.rng.randint(1, 4), num_outputs=1,
+                num_inputs=n_in, num_outputs=1,
                 amount_btc=amount,
-                fee_btc=round(self.rng.uniform(0.0001, 0.0005), 8),  # oddly low fee for the value
-                fee_rate_sat_vb=round(self.rng.uniform(1, 4), 2),
+                fee_btc=fee_btc,
+                fee_rate_sat_vb=fee_rate,
                 country=country, asn=asn, asn_org=org,
                 label="anomalous", anomaly_type="high_value_single_hop",
             ))
@@ -356,8 +369,11 @@ class BitcoinDatasetGenerator:
                 t += self.rng.uniform(60, 900)  # minutes apart, evades naive rate limits
                 peel = round(remaining * self.rng.uniform(0.02, 0.08), 8)
                 remaining = round(remaining - peel, 8)
-                next_addr = self._make_address()
+                peel_addr = self._make_address()    # small amount "peeled off" to this hop
+                change_addr = self._make_address()  # the rest, carried forward down the chain
                 dst_country, dst_asn, dst_org = self._pick_country_asn(high_risk_bias=0.5)
+                fee_btc = round(peel * 0.001, 8)
+                fee_rate = round((fee_btc * 1e8) / self._estimate_vbytes(1, 2), 2)
                 records.append(Transaction(
                     timestamp=self._timestamp_at(t),
                     src_ip=src_ip, dst_ip=self._random_public_ip(dst_country),
@@ -365,14 +381,14 @@ class BitcoinDatasetGenerator:
                     dst_port=self.rng.choice(BITCOIN_PORTS_NORMAL),
                     txid=self._make_txid(),
                     input_addresses=current_addr,
-                    output_addresses=f"{next_addr}|{next_addr}",  # peel + change, same addr style
+                    output_addresses=f"{peel_addr}|{change_addr}",  # peel target + distinct change address
                     num_inputs=1, num_outputs=2,
-                    amount_btc=peel, fee_btc=round(peel * 0.001, 8),
-                    fee_rate_sat_vb=round(self.rng.uniform(5, 20), 2),
+                    amount_btc=peel, fee_btc=fee_btc,
+                    fee_rate_sat_vb=fee_rate,
                     country=country, asn=asn, asn_org=org,
                     label="anomalous", anomaly_type="peeling_chain",
                 ))
-                current_addr = next_addr
+                current_addr = change_addr
         return records
 
     def gen_anomalous_port(self, n: int, base_t: float) -> List[Transaction]:
@@ -380,6 +396,10 @@ class BitcoinDatasetGenerator:
         for _ in range(n):
             t = base_t + self.rng.uniform(0, 20000)
             country, asn, org = self._pick_country_asn(high_risk_bias=0.5)
+            inputs = self._sample_addresses(self.rng.randint(1, 2))
+            outputs = self._sample_addresses(self.rng.randint(1, 2))
+            fee_btc = round(self.rng.uniform(0.00001, 0.0005), 8)
+            fee_rate = round((fee_btc * 1e8) / self._estimate_vbytes(len(inputs), len(outputs)), 2)
             records.append(Transaction(
                 timestamp=self._timestamp_at(t),
                 src_ip=self._random_public_ip(country),
@@ -387,12 +407,12 @@ class BitcoinDatasetGenerator:
                 src_port=self.rng.choice(UNUSUAL_PORTS),
                 dst_port=self.rng.choice(UNUSUAL_PORTS),
                 txid=self._make_txid(),
-                input_addresses="|".join(self._sample_addresses(self.rng.randint(1, 2))),
-                output_addresses="|".join(self._sample_addresses(self.rng.randint(1, 2))),
-                num_inputs=1, num_outputs=1,
+                input_addresses="|".join(inputs),
+                output_addresses="|".join(outputs),
+                num_inputs=len(inputs), num_outputs=len(outputs),
                 amount_btc=round(self.rng.uniform(0.01, 2), 8),
-                fee_btc=round(self.rng.uniform(0.00001, 0.0005), 8),
-                fee_rate_sat_vb=round(self.rng.uniform(1, 15), 2),
+                fee_btc=fee_btc,
+                fee_rate_sat_vb=fee_rate,
                 country=country, asn=asn, asn_org=org,
                 label="anomalous", anomaly_type="anomalous_port_usage",
             ))
@@ -443,6 +463,8 @@ class BitcoinDatasetGenerator:
             gap = self.rng.uniform(30, 300)  # seconds — too fast for real travel
             for i, (country, asn, org) in enumerate([(c1, asn1, org1), (c2, asn2, org2)]):
                 tt = t + i * gap
+                fee_btc = round(self.rng.uniform(0.00001, 0.0002), 8)
+                fee_rate = round((fee_btc * 1e8) / self._estimate_vbytes(1, 1), 2)
                 records.append(Transaction(
                     timestamp=self._timestamp_at(tt),
                     src_ip=self._random_public_ip(country),
@@ -454,8 +476,8 @@ class BitcoinDatasetGenerator:
                     output_addresses="|".join(self._sample_addresses(1)),
                     num_inputs=1, num_outputs=1,
                     amount_btc=round(self.rng.uniform(0.001, 0.5), 8),
-                    fee_btc=round(self.rng.uniform(0.00001, 0.0002), 8),
-                    fee_rate_sat_vb=round(self.rng.uniform(5, 30), 2),
+                    fee_btc=fee_btc,
+                    fee_rate_sat_vb=fee_rate,
                     country=country, asn=asn, asn_org=org,
                     label="anomalous", anomaly_type="geo_velocity_impossible_travel",
                 ))

@@ -1,0 +1,25 @@
+{
+  "accounting": "integer satoshis; no UTXO ledger",
+  "amount_convention": "amount_btc=sum(output_amounts), including change; inputs=outputs+fee",
+  "anomalous": 150,
+  "anomaly_distribution": {
+    "anomalous_port_usage": 22,
+    "dust_attack": 23,
+    "fee_anomaly": 15,
+    "geo_velocity_impossible_travel": 14,
+    "high_value_single_hop": 24,
+    "peeling_chain": 22,
+    "rapid_fire_layering": 30
+  },
+  "files": {
+    "regression.csv": "3cf9214bfa528295082f5de54b28460fe752166089a8a3c876396ef701de2867",
+    "regression.ground_truth.jsonl": "04d99299aeb7f6328a28533d1e11977746338fbd368296fb20871d3802feeee8",
+    "regression.jsonl": "f59d3fba9e0ba0d1bd2277c363bd624a4a50af572eca75e700a6f0c2eaba1cb9"
+  },
+  "network": "synthetic observer mappings, not GeoIP or ownership",
+  "normal": 850,
+  "records": 1000,
+  "scenario_count": 921,
+  "schema_version": 2,
+  "seed": 42
+}

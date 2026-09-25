@@ -10,13 +10,13 @@ and evaluating anomaly-detection / fraud-detection models.
 
 Fields produced per record:
     timestamp        - ISO-8601 UTC timestamp of the transaction
-    src_ip            - source IP address (peer originating the tx)
+    src_ip            - synthetic observed source peer; not wallet ownership
     dst_ip            - destination IP address (peer receiving/relaying)
     src_port          - source TCP port
     dst_port          - destination TCP port
     txid              - synthetic 64-hex-char transaction id
-    input_addresses   - pipe-separated list of input wallet addresses
-    output_addresses  - pipe-separated list of output wallet addresses
+    input_addresses   - input addresses (v1 pipes; v2 arrays)
+    output_addresses  - output addresses (v1 pipes; v2 arrays)
     num_inputs        - number of inputs
     num_outputs       - number of outputs
     amount_btc        - total transacted amount (BTC)
@@ -31,10 +31,14 @@ Fields produced per record:
     anomaly_type      - specific anomaly category (empty for normal rows)
 
 Usage:
-    python btc_synthetic_dataset_generator.py --n-normal 8000 --n-anomalous 800 \
+    python scripts/btc_synthetic_dataset_generator.py --schema-version 1 --n-normal 8000 --n-anomalous 800 \
         --seed 42 --out dataset.csv
 
-Design notes:
+Default CLI mode is v2 (18,000 records); the BitcoinDatasetGenerator class
+retains the legacy v1 implementation for compatibility. See dataset_v2.py and
+docs/dataset_v2.md for v2 semantics, amount arrays and synthetic assumptions.
+
+Design notes (legacy v1):
     - Everything is driven by a single `random.Random` / `numpy` seed so the
       output is byte-for-byte reproducible across runs.
     - Addresses, txids and IPs are synthetic look-alikes (correct format,
@@ -548,7 +552,7 @@ def write_csv(records: List[Transaction], path: str) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for r in records:
-            writer.writerow(asdict(r))
+            writer.writerow({k: json.dumps(v) if isinstance(v, list) else v for k, v in asdict(r).items()})
 
 
 def write_jsonl(records: List[Transaction], path: str) -> None:
@@ -564,22 +568,47 @@ def write_jsonl(records: List[Transaction], path: str) -> None:
 def main():
     parser = argparse.ArgumentParser(
         description="Synthetic Bitcoin transaction dataset generator (PS 26146)")
-    parser.add_argument("--n-normal", type=int, default=8000,
+    parser.add_argument("--n-normal", type=int, default=None,
                          help="number of normal transactions to generate")
-    parser.add_argument("--n-anomalous", type=int, default=800,
-                         help="approximate number of anomalous transactions to generate")
+    parser.add_argument("--n-anomalous", type=int, default=None,
+                         help="anomalous records (exact in v2; approximate in legacy v1)")
     parser.add_argument("--seed", type=int, default=42, help="random seed for reproducibility")
     parser.add_argument("--out", type=str, default="btc_synthetic_dataset.csv",
                          help="output file path (.csv or .jsonl)")
+    parser.add_argument("--schema-version", type=int, choices=[1, 2], default=2)
+    parser.add_argument("--both", action="store_true", help="write CSV and JSONL together")
     args = parser.parse_args()
+    from pathlib import Path
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    if args.n_normal is None:
+        args.n_normal = 15300 if args.schema_version == 2 else 8000
+    if args.n_anomalous is None:
+        args.n_anomalous = 2700 if args.schema_version == 2 else 800
 
-    gen = BitcoinDatasetGenerator(seed=args.seed)
+    if args.schema_version == 2:
+        if __package__:
+            from .dataset_v2 import BitcoinDatasetV2Generator
+        else:
+            from dataset_v2 import BitcoinDatasetV2Generator
+        gen = BitcoinDatasetV2Generator(seed=args.seed)
+    else:
+        gen = BitcoinDatasetGenerator(seed=args.seed)
     records = gen.generate(n_normal=args.n_normal, n_anomalous=args.n_anomalous)
 
-    if args.out.endswith(".jsonl"):
+    if args.both:
+        csv_path = str(Path(args.out).with_suffix(".csv"))
+        jsonl_path = str(Path(args.out).with_suffix(".jsonl"))
+        write_csv(records, csv_path)
+        write_jsonl(records, jsonl_path)
+        files = [csv_path, jsonl_path]
+    elif args.out.endswith(".jsonl"):
         write_jsonl(records, args.out)
+        files = [args.out]
     else:
         write_csv(records, args.out)
+        files = [args.out]
+    if args.schema_version == 2:
+        gen.write_metadata(records, args.out, files)
 
     n_anom = sum(1 for r in records if r.label == "anomalous")
     print(f"Generated {len(records)} transactions "

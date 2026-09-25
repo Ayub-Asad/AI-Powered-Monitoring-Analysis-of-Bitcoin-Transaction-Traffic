@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 from . import validators as v
+from ..money import to_satoshis, from_satoshis
 from .errors import Code, FieldError, RowIssue, short_repr
 from .schema import VALID_LABELS, ColumnMapping
 
@@ -55,6 +56,8 @@ def validate_row(raw: Dict[str, Any], row_number: int, mapping: ColumnMapping) -
     def warn(name: str, code: str, message: str, value: Any = None) -> None:
         out.warnings.append(RowIssue(row_number, name, code, message, short_repr(value)))
 
+    is_v2 = any(not v.is_null(get(name)) for name in ("input_amounts", "output_amounts"))
+
     # ---- required fields ----------------------------------------------------
     for name in _REQUIRED_ORDER:
         value = get(name)
@@ -66,6 +69,8 @@ def validate_row(raw: Dict[str, Any], row_number: int, mapping: ColumnMapping) -
                 rec[name], was_naive = v.normalize_timestamp(value)
                 if was_naive:
                     warn(name, Code.NAIVE_TIMESTAMP_ASSUMED_UTC, "timestamp has no timezone; assumed UTC", value)
+            elif is_v2 and name in ("input_addresses", "output_addresses"):
+                rec[name] = v.normalize_address_list(value, strict=True)
             else:
                 rec[name] = _SIMPLE_REQUIRED[name](value)
         except FieldError as exc:
@@ -95,10 +100,19 @@ def validate_row(raw: Dict[str, Any], row_number: int, mapping: ColumnMapping) -
             return None
 
     for name, list_field in (("num_inputs", "input_addresses"), ("num_outputs", "output_addresses")):
-        count = optional(name, v.normalize_count)
+        if is_v2 and not v.is_null(get(name)):
+            try:
+                count = v.normalize_count(get(name))
+            except FieldError as exc:
+                error(name, exc.code, exc.message, get(name))
+                count = None
+        else:
+            count = optional(name, v.normalize_count)
         derived = len(rec[list_field])
         if count is None:
             count = derived
+        elif count != derived and is_v2:
+            error(name, Code.ARRAY_LENGTH_MISMATCH, "v2 count must match address entries", count)
         elif count != derived:
             warn(name, Code.COUNT_MISMATCH,
                  f"{name}={count} but {list_field} has {derived} entries (source value kept)")
@@ -108,6 +122,33 @@ def validate_row(raw: Dict[str, Any], row_number: int, mapping: ColumnMapping) -
     rec["country"] = optional("country", v.normalize_country)
     rec["asn"] = optional("asn", v.normalize_asn)
     rec["asn_org"] = optional("asn_org", v.normalize_text)
+
+    # v2 allocations are optional as a pair, but never soft-validated.
+    for name in ("input_amounts", "output_amounts"):
+        rec[name] = None
+        if is_v2:
+            try:
+                rec[name] = v.normalize_amount_list(get(name))
+                address_name = name.replace("amounts", "addresses")
+                if len(rec[name]) != len(rec[address_name]):
+                    error(name, Code.ARRAY_LENGTH_MISMATCH, "amount/address lengths differ")
+            except FieldError as exc:
+                error(name, exc.code, exc.message, get(name))
+    if is_v2:
+        try:
+            amount = to_satoshis(get("amount_btc"))
+            fee = to_satoshis(get("fee_btc"))
+            rec["amount_btc"], rec["fee_btc"] = from_satoshis(amount), from_satoshis(fee)
+            if not out.errors:
+                inputs = sum(to_satoshis(x) for x in rec["input_amounts"])
+                outputs = sum(to_satoshis(x) for x in rec["output_amounts"])
+                if inputs != outputs + fee or outputs != amount:
+                    error("input_amounts", Code.INCONSISTENT_AMOUNTS,
+                          "require input sum = output sum + fee and amount_btc = output sum")
+        except ValueError as exc:
+            error("amount_btc/fee_btc", Code.INVALID_NUMBER, str(exc))
+    if out.errors:
+        return out
 
     # ---- ground truth: isolated, evaluation-only ------------------------------
     for name, raw_name in mapping.ground_truth_to_raw.items():

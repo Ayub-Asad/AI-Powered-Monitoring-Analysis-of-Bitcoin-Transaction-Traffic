@@ -1,0 +1,77 @@
+{
+  "burst_window_seconds": 60,
+  "transaction_ml_features": [
+    "amount_btc",
+    "fee_btc",
+    "fee_rate_sat_vb",
+    "num_inputs",
+    "num_outputs",
+    "fee_to_amount_ratio",
+    "input_output_count_ratio",
+    "hour_of_day_utc",
+    "day_of_week_utc",
+    "is_night_utc"
+  ],
+  "wallet_ml_features": [
+    "transaction_count",
+    "incoming_transaction_count",
+    "outgoing_transaction_count",
+    "total_received_btc",
+    "total_sent_btc",
+    "average_transaction_amount",
+    "median_transaction_amount",
+    "transaction_amount_std",
+    "min_transaction_amount",
+    "max_transaction_amount",
+    "unique_counterparties",
+    "fan_in",
+    "fan_out",
+    "active_duration_seconds",
+    "mean_inter_transaction_seconds",
+    "median_inter_transaction_seconds",
+    "max_tx_in_60s"
+  ],
+  "wallet_extra_behavioural_features": [
+    "max_tx_in_window"
+  ],
+  "wallet_availability_fields": [
+    "incoming_amounts_available",
+    "outgoing_amounts_available"
+  ],
+  "transaction_context_fields": [
+    "timestamp",
+    "src_ip",
+    "dst_ip",
+    "src_port",
+    "dst_port",
+    "country",
+    "asn",
+    "asn_org",
+    "source_row"
+  ],
+  "wallet_context_features": [
+    "unique_observed_src_ips",
+    "unique_observed_dst_ips",
+    "unique_observed_countries",
+    "unique_observed_asns"
+  ],
+  "identifiers": {
+    "transaction_features": [
+      "txid"
+    ],
+    "wallet_features": [
+      "wallet_address"
+    ],
+    "transaction_context": [
+      "txid"
+    ],
+    "wallet_context": [
+      "wallet_address"
+    ]
+  },
+  "unavailable_for_legacy": [
+    "total_received_btc",
+    "total_sent_btc"
+  ],
+  "estimated_features": []
+}

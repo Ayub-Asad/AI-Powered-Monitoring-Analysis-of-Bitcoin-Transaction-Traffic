@@ -1,0 +1,59 @@
+{
+  "baseline": {
+    "command": "python -m pytest -p no:cacheprovider -v (from backend)",
+    "failed": 0,
+    "passed": 69,
+    "seconds": 65.26,
+    "skip_reason": "generator path pointed to repository root instead of scripts/",
+    "skipped": 7,
+    "subtests_passed": 54
+  },
+  "cli_checks": {
+    "feature_export_with_30_second_window": true,
+    "v1_byte_reproduction": true,
+    "v2_regression_csv_jsonl_truth_manifest_byte_reproduction": true
+  },
+  "environment": {
+    "fastapi": "0.141.1",
+    "httpx": "0.28.1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "pytest": "9.1.1",
+    "python": "3.13.14",
+    "python-multipart": "0.0.32",
+    "starlette": "1.7.0",
+    "uvicorn": "0.54.0"
+  },
+  "feature_unit_phase": {
+    "failed": 0,
+    "passed": 12,
+    "seconds": 9.11
+  },
+  "final": {
+    "command": "python -B -m pytest -q -p no:cacheprovider (from backend)",
+    "failed": 0,
+    "passed": 105,
+    "seconds": 59.96,
+    "skipped": 0,
+    "subtests_passed": 75,
+    "warnings": 1
+  },
+  "phase_a": {
+    "failed": 0,
+    "passed": 78,
+    "seconds": 10.09,
+    "skipped": 0
+  },
+  "phase_b": {
+    "failed": 0,
+    "passed": 92,
+    "seconds": 40.6,
+    "skipped": 0
+  },
+  "supplemental_baseline": {
+    "failed": 0,
+    "note": "generator test path corrected only in memory",
+    "passed": 7
+  },
+  "warning": "Starlette TestClient httpx deprecation; API tests pass. Dependencies unchanged."
+}

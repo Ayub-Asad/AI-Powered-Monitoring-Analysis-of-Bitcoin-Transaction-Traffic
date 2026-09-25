@@ -432,7 +432,7 @@ class TestErrorReporting(unittest.TestCase):
 # --------------------------------------------------------------------------
 # Integration against the real dataset generator (skipped if not in the repo)
 # --------------------------------------------------------------------------
-GEN = Path(__file__).resolve().parents[2] / "btc_synthetic_dataset_generator.py"
+GEN = Path(__file__).resolve().parents[2] / "scripts" / "btc_synthetic_dataset_generator.py"
 
 
 @unittest.skipUnless(GEN.exists(), "dataset generator not found next to backend/")

@@ -1,0 +1,111 @@
+{
+  "corpora": {
+    "test": {
+      "complete_scenarios": true,
+      "files": {
+        "test.groups.jsonl": "6f07a439494c464e61b026c522082afd50a87bb6a39e02cc19c72cdd17628d53",
+        "test.labels.jsonl": "118865700898c06456c96c83f1b0a9ddb817167f8ffc10f62f14118aa6c90e46",
+        "test.transactions.jsonl": "d73c5ab447be04b675ce8212b0f0e59a87adda20420b14dfc4448dd7dca17032"
+      },
+      "generation": {
+        "anomalous": 2700,
+        "normal": 15300,
+        "seed": 303,
+        "start_time": "2025-03-01T00:00:00+00:00"
+      },
+      "generation_seconds": 7.836441199999854,
+      "records": 18000
+    },
+    "train": {
+      "complete_scenarios": true,
+      "files": {
+        "train.groups.jsonl": "a484a472d30cd4ae7c4f66c5056484f1c7379cb3ad330dd5cb2d8d3715860c6d",
+        "train.labels.jsonl": "0405156b83cb3cea704315380100d2045fec90a23019e33a2f780699dbed723c",
+        "train.transactions.jsonl": "695fc2fbf3444706d9fa55eb8da05c77dd2b854683bc01df19e6a17fc922fedc"
+      },
+      "generation": {
+        "anomalous": 0,
+        "normal": 15300,
+        "seed": 101,
+        "start_time": "2025-01-01T00:00:00+00:00"
+      },
+      "generation_seconds": 8.50200649999988,
+      "records": 15300
+    },
+    "validation": {
+      "complete_scenarios": true,
+      "files": {
+        "validation.groups.jsonl": "1afac6daf748d5b679f3e04d228395fe8c368d40f4d6e2ca32befb4205cba8e6",
+        "validation.labels.jsonl": "8112f172df29d99aee1b16cd087c0568668401f82bcabb0cd6733d8ca2a639df",
+        "validation.transactions.jsonl": "2b3eac07d5c65286099dc0e72bd741f7af41c22b3679d3b6cf0e6dfe7b85864a"
+      },
+      "generation": {
+        "anomalous": 2700,
+        "normal": 15300,
+        "seed": 202,
+        "start_time": "2025-02-01T00:00:00+00:00"
+      },
+      "generation_seconds": 7.02284920000011,
+      "records": 18000
+    }
+  },
+  "experiment_version": "transaction-iforest-v1",
+  "split_audit": {
+    "chronological": true,
+    "overlaps": {
+      "train_test": {
+        "actor": 0,
+        "raw_scenario": 0,
+        "scenario": 0,
+        "txid": 0,
+        "wallet": 0
+      },
+      "train_validation": {
+        "actor": 0,
+        "raw_scenario": 0,
+        "scenario": 0,
+        "txid": 0,
+        "wallet": 0
+      },
+      "validation_test": {
+        "actor": 0,
+        "raw_scenario": 0,
+        "scenario": 0,
+        "txid": 0,
+        "wallet": 0
+      }
+    },
+    "partitions": {
+      "test": {
+        "actor_count": 587,
+        "end": "2025-03-14T10:58:09+00:00",
+        "raw_scenario_count": 16555,
+        "records": 18000,
+        "scenario_count": 16555,
+        "start": "2025-03-01T01:28:49+00:00",
+        "txid_count": 18000,
+        "wallet_count": 6952
+      },
+      "train": {
+        "actor_count": 586,
+        "end": "2025-01-14T09:00:07+00:00",
+        "raw_scenario_count": 15300,
+        "records": 15300,
+        "scenario_count": 15300,
+        "start": "2025-01-01T01:09:34+00:00",
+        "txid_count": 15300,
+        "wallet_count": 5773
+      },
+      "validation": {
+        "actor_count": 588,
+        "end": "2025-02-14T09:00:36+00:00",
+        "raw_scenario_count": 16555,
+        "records": 18000,
+        "scenario_count": 16555,
+        "start": "2025-02-01T01:36:33+00:00",
+        "txid_count": 18000,
+        "wallet_count": 7013
+      }
+    }
+  }
+}

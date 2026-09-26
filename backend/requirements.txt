@@ -3,3 +3,5 @@ uvicorn>=0.29
 python-multipart>=0.0.9   # required by FastAPI for file uploads
 pandas>=2.0
 numpy>=1.26
+scikit-learn>=1.6,<2
+joblib>=1.4,<2

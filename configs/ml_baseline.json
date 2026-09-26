@@ -1,0 +1,21 @@
+{
+  "experiment_version": "transaction-iforest-v1",
+  "feature_schema_version": "transaction-behaviour-v1",
+  "data_dir": "data/ml",
+  "run_dir": "artifacts/ml/baseline",
+  "report_dir": "reports/ml",
+  "corpora": {
+    "train": {"seed": 101, "start_time": "2025-01-01T00:00:00+00:00", "normal": 15300, "anomalous": 0},
+    "validation": {"seed": 202, "start_time": "2025-02-01T00:00:00+00:00", "normal": 15300, "anomalous": 2700},
+    "test": {"seed": 303, "start_time": "2025-03-01T00:00:00+00:00", "normal": 15300, "anomalous": 2700}
+  },
+  "model_seeds": [42, 43, 44],
+  "reference_seed": 42,
+  "model": {"n_estimators": 300, "max_samples": 256, "max_features": 1.0, "bootstrap": false, "contamination": "auto", "n_jobs": 1},
+  "preprocessing": {"missing": "training_median", "log1p": ["amount_btc", "fee_btc", "fee_rate_sat_vb", "fee_to_amount_ratio", "input_output_count_ratio"], "btc_multiplier": 100000000, "scaling": "none"},
+  "threshold": {"objective": "validation_f1", "tie_break": "lowest_fpr_then_highest_threshold", "operator": ">="},
+  "heuristic": {"features": ["amount_btc", "fee_btc", "fee_rate_sat_vb", "num_inputs", "num_outputs", "fee_to_amount_ratio", "input_output_count_ratio"], "zero_iqr_scale": 1.0},
+  "alert_budgets": [0.01, 0.05, 0.10],
+  "alert_rounding": "ceil",
+  "alert_tie_break": "txid_ascending"
+}

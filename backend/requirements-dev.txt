@@ -1,3 +1,4 @@
 -r requirements.txt
 pytest>=8.0
 httpx>=0.27               # FastAPI TestClient
+matplotlib>=3.9,<4         # offline ML evaluation plots

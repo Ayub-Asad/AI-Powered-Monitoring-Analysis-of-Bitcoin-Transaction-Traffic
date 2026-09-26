@@ -1,0 +1,467 @@
+{
+  "evaluation_total_seconds": 31.87206690000039,
+  "experiment_version": "transaction-iforest-v1",
+  "frozen_sha256": "044f1538d5a90087863e129e3c39b60942b1b6b0006469662cb569b96fef7fbe",
+  "interpretation": "Synthetic injected-scenario performance, not real-world criminality or deployment accuracy. No test-based model selection.",
+  "models": {
+    "heuristic": {
+      "alert_budgets": {
+        "1%": {
+          "alerts": 180,
+          "precision": 0.3,
+          "true_positives": 54
+        },
+        "10%": {
+          "alerts": 1800,
+          "precision": 0.27111111111111114,
+          "true_positives": 488
+        },
+        "5%": {
+          "alerts": 900,
+          "precision": 0.20333333333333334,
+          "true_positives": 183
+        }
+      },
+      "anomalous": 2700,
+      "auc_unavailable_reason": null,
+      "average_precision": 0.20368749091754818,
+      "confusion_matrix": {
+        "fn": 865,
+        "fp": 6618,
+        "tn": 8682,
+        "tp": 1835
+      },
+      "f1": 0.3290594458889985,
+      "false_positive_rate": 0.43254901960784314,
+      "normal": 15300,
+      "per_category": {
+        "anomalous_port_usage": {
+          "detected": 190,
+          "recall": 0.4691358024691358,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "dust_attack": {
+          "detected": 405,
+          "recall": 1.0,
+          "scenarios": 5,
+          "transactions": 405
+        },
+        "fee_anomaly": {
+          "detected": 270,
+          "recall": 1.0,
+          "scenarios": 270,
+          "transactions": 270
+        },
+        "geo_velocity_impossible_travel": {
+          "detected": 100,
+          "recall": 0.37037037037037035,
+          "scenarios": 135,
+          "transactions": 270
+        },
+        "high_value_single_hop": {
+          "detected": 405,
+          "recall": 1.0,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "peeling_chain": {
+          "detected": 372,
+          "recall": 0.9185185185185185,
+          "scenarios": 17,
+          "transactions": 405
+        },
+        "rapid_fire_layering": {
+          "detected": 93,
+          "recall": 0.17222222222222222,
+          "scenarios": 18,
+          "transactions": 540
+        }
+      },
+      "pr_auc_trapezoidal": 0.20615843459795957,
+      "precision": 0.2170826925351946,
+      "precision_unavailable_reason": null,
+      "recall": 0.6796296296296296,
+      "recall_unavailable_reason": null,
+      "records": 18000,
+      "roc_auc": 0.6205759017187121,
+      "score_quantiles": {
+        "anomalous": {
+          "0": 0.07644436779656132,
+          "0.25": 1.2760352413029077,
+          "0.5": 2.6478669937482815,
+          "0.75": 4.240173555826039,
+          "0.95": 249.50294105101997,
+          "1": 1111.3907895057148
+        },
+        "normal": {
+          "0": 0.03376628983809528,
+          "0.25": 1.0,
+          "0.5": 1.409420839653209,
+          "0.75": 3.0796111773015395,
+          "0.95": 200.98578361387766,
+          "1": 1088.6545638922807
+        }
+      },
+      "threshold": 1.433530268360689
+    },
+    "iforest-42": {
+      "alert_budgets": {
+        "1%": {
+          "alerts": 180,
+          "precision": 0.2777777777777778,
+          "true_positives": 50
+        },
+        "10%": {
+          "alerts": 1800,
+          "precision": 0.2088888888888889,
+          "true_positives": 376
+        },
+        "5%": {
+          "alerts": 900,
+          "precision": 0.18444444444444444,
+          "true_positives": 166
+        }
+      },
+      "anomalous": 2700,
+      "auc_unavailable_reason": null,
+      "average_precision": 0.19078551897688717,
+      "confusion_matrix": {
+        "fn": 1209,
+        "fp": 6444,
+        "tn": 8856,
+        "tp": 1491
+      },
+      "f1": 0.28039492242595204,
+      "false_positive_rate": 0.4211764705882353,
+      "normal": 15300,
+      "per_category": {
+        "anomalous_port_usage": {
+          "detected": 180,
+          "recall": 0.4444444444444444,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "dust_attack": {
+          "detected": 397,
+          "recall": 0.980246913580247,
+          "scenarios": 5,
+          "transactions": 405
+        },
+        "fee_anomaly": {
+          "detected": 240,
+          "recall": 0.8888888888888888,
+          "scenarios": 270,
+          "transactions": 270
+        },
+        "geo_velocity_impossible_travel": {
+          "detected": 103,
+          "recall": 0.3814814814814815,
+          "scenarios": 135,
+          "transactions": 270
+        },
+        "high_value_single_hop": {
+          "detected": 353,
+          "recall": 0.8716049382716049,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "peeling_chain": {
+          "detected": 112,
+          "recall": 0.2765432098765432,
+          "scenarios": 17,
+          "transactions": 405
+        },
+        "rapid_fire_layering": {
+          "detected": 106,
+          "recall": 0.1962962962962963,
+          "scenarios": 18,
+          "transactions": 540
+        }
+      },
+      "pr_auc_trapezoidal": 0.1904849956701246,
+      "precision": 0.18790170132325143,
+      "precision_unavailable_reason": null,
+      "recall": 0.5522222222222222,
+      "recall_unavailable_reason": null,
+      "records": 18000,
+      "roc_auc": 0.5911198136044542,
+      "score_quantiles": {
+        "anomalous": {
+          "0": 0.39316352517917097,
+          "0.25": 0.4555319186815715,
+          "0.5": 0.5013125512537429,
+          "0.75": 0.5449841978978606,
+          "0.95": 0.6089783509659413,
+          "1": 0.7016218373520652
+        },
+        "normal": {
+          "0": 0.39010223886206685,
+          "0.25": 0.4450743824140959,
+          "0.5": 0.4777129236547113,
+          "0.75": 0.5212548096225292,
+          "0.95": 0.5955181677153557,
+          "1": 0.7163182209525542
+        }
+      },
+      "threshold": 0.4909578707052394
+    },
+    "iforest-43": {
+      "alert_budgets": {
+        "1%": {
+          "alerts": 180,
+          "precision": 0.26666666666666666,
+          "true_positives": 48
+        },
+        "10%": {
+          "alerts": 1800,
+          "precision": 0.19833333333333333,
+          "true_positives": 357
+        },
+        "5%": {
+          "alerts": 900,
+          "precision": 0.19555555555555557,
+          "true_positives": 176
+        }
+      },
+      "anomalous": 2700,
+      "auc_unavailable_reason": null,
+      "average_precision": 0.18772179477527662,
+      "confusion_matrix": {
+        "fn": 1288,
+        "fp": 5869,
+        "tn": 9431,
+        "tp": 1412
+      },
+      "f1": 0.28293758140466885,
+      "false_positive_rate": 0.38359477124183006,
+      "normal": 15300,
+      "per_category": {
+        "anomalous_port_usage": {
+          "detected": 170,
+          "recall": 0.41975308641975306,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "dust_attack": {
+          "detected": 371,
+          "recall": 0.9160493827160494,
+          "scenarios": 5,
+          "transactions": 405
+        },
+        "fee_anomaly": {
+          "detected": 227,
+          "recall": 0.8407407407407408,
+          "scenarios": 270,
+          "transactions": 270
+        },
+        "geo_velocity_impossible_travel": {
+          "detected": 99,
+          "recall": 0.36666666666666664,
+          "scenarios": 135,
+          "transactions": 270
+        },
+        "high_value_single_hop": {
+          "detected": 343,
+          "recall": 0.8469135802469135,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "peeling_chain": {
+          "detected": 99,
+          "recall": 0.24444444444444444,
+          "scenarios": 17,
+          "transactions": 405
+        },
+        "rapid_fire_layering": {
+          "detected": 103,
+          "recall": 0.19074074074074074,
+          "scenarios": 18,
+          "transactions": 540
+        }
+      },
+      "pr_auc_trapezoidal": 0.18744624075755456,
+      "precision": 0.19392940530146957,
+      "precision_unavailable_reason": null,
+      "recall": 0.522962962962963,
+      "recall_unavailable_reason": null,
+      "records": 18000,
+      "roc_auc": 0.5839566327765675,
+      "score_quantiles": {
+        "anomalous": {
+          "0": 0.3948049499468845,
+          "0.25": 0.45201298068902573,
+          "0.5": 0.500641653041169,
+          "0.75": 0.5440097441997774,
+          "0.95": 0.6066770831551589,
+          "1": 0.7019711970862801
+        },
+        "normal": {
+          "0": 0.39045563282602747,
+          "0.25": 0.44502954535319417,
+          "0.5": 0.4777340981377104,
+          "0.75": 0.5212675066389861,
+          "0.95": 0.5939748001057628,
+          "1": 0.7216278581767122
+        }
+      },
+      "threshold": 0.4962104057526988
+    },
+    "iforest-44": {
+      "alert_budgets": {
+        "1%": {
+          "alerts": 180,
+          "precision": 0.2722222222222222,
+          "true_positives": 49
+        },
+        "10%": {
+          "alerts": 1800,
+          "precision": 0.21222222222222223,
+          "true_positives": 382
+        },
+        "5%": {
+          "alerts": 900,
+          "precision": 0.20666666666666667,
+          "true_positives": 186
+        }
+      },
+      "anomalous": 2700,
+      "auc_unavailable_reason": null,
+      "average_precision": 0.19668647708848447,
+      "confusion_matrix": {
+        "fn": 1233,
+        "fp": 5807,
+        "tn": 9493,
+        "tp": 1467
+      },
+      "f1": 0.29416482855424103,
+      "false_positive_rate": 0.3795424836601307,
+      "normal": 15300,
+      "per_category": {
+        "anomalous_port_usage": {
+          "detected": 169,
+          "recall": 0.41728395061728396,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "dust_attack": {
+          "detected": 394,
+          "recall": 0.9728395061728395,
+          "scenarios": 5,
+          "transactions": 405
+        },
+        "fee_anomaly": {
+          "detected": 232,
+          "recall": 0.8592592592592593,
+          "scenarios": 270,
+          "transactions": 270
+        },
+        "geo_velocity_impossible_travel": {
+          "detected": 96,
+          "recall": 0.35555555555555557,
+          "scenarios": 135,
+          "transactions": 270
+        },
+        "high_value_single_hop": {
+          "detected": 363,
+          "recall": 0.8962962962962963,
+          "scenarios": 405,
+          "transactions": 405
+        },
+        "peeling_chain": {
+          "detected": 109,
+          "recall": 0.2691358024691358,
+          "scenarios": 17,
+          "transactions": 405
+        },
+        "rapid_fire_layering": {
+          "detected": 104,
+          "recall": 0.1925925925925926,
+          "scenarios": 18,
+          "transactions": 540
+        }
+      },
+      "pr_auc_trapezoidal": 0.19641164279315157,
+      "precision": 0.20167720648886445,
+      "precision_unavailable_reason": null,
+      "recall": 0.5433333333333333,
+      "recall_unavailable_reason": null,
+      "records": 18000,
+      "roc_auc": 0.6049151537158073,
+      "score_quantiles": {
+        "anomalous": {
+          "0": 0.39867189313458223,
+          "0.25": 0.4592530572882954,
+          "0.5": 0.5047115858350841,
+          "0.75": 0.546910395696478,
+          "0.95": 0.605834695662476,
+          "1": 0.6893469089443132
+        },
+        "normal": {
+          "0": 0.39358972706742135,
+          "0.25": 0.4462099534934205,
+          "0.5": 0.47918807687988607,
+          "0.75": 0.5218875798791802,
+          "0.95": 0.5925934378623439,
+          "1": 0.7061656401857841
+        }
+      },
+      "threshold": 0.4968119517839956
+    }
+  },
+  "reference_model": "iforest-42",
+  "seed_summary": {
+    "average_precision": {
+      "max": 0.19668647708848447,
+      "mean": 0.19173126361354942,
+      "min": 0.18772179477527662,
+      "std_population": 0.003720412784671164
+    },
+    "f1": {
+      "max": 0.29416482855424103,
+      "mean": 0.28583244412828734,
+      "min": 0.28039492242595204,
+      "std_population": 0.0059826277023238665
+    },
+    "false_positive_rate": {
+      "max": 0.4211764705882353,
+      "mean": 0.39477124183006534,
+      "min": 0.3795424836601307,
+      "std_population": 0.01874446296891721
+    },
+    "pr_auc_trapezoidal": {
+      "max": 0.19641164279315157,
+      "mean": 0.19144762640694357,
+      "min": 0.18744624075755456,
+      "std_population": 0.0037228664463979204
+    },
+    "precision": {
+      "max": 0.20167720648886445,
+      "mean": 0.19450277103786182,
+      "min": 0.18790170132325143,
+      "std_population": 0.0056384215783443735
+    },
+    "recall": {
+      "max": 0.5522222222222222,
+      "mean": 0.5395061728395062,
+      "min": 0.522962962962963,
+      "std_population": 0.012247759827393472
+    },
+    "roc_auc": {
+      "max": 0.6049151537158073,
+      "mean": 0.5933305333656097,
+      "min": 0.5839566327765675,
+      "std_population": 0.008697906314621947
+    }
+  },
+  "test_feature_shape": [
+    18000,
+    10
+  ],
+  "test_scoring_seconds": {
+    "heuristic": 0.0229207000002134,
+    "iforest-42": 0.531871300000148,
+    "iforest-43": 0.49018740000019534,
+    "iforest-44": 0.5032741999998507
+  }
+}

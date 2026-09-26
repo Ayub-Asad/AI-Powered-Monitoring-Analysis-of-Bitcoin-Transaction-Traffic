@@ -1,0 +1,49 @@
+{
+  "branch": "feat/ml-anomaly-detection",
+  "date": "2026-09-26",
+  "full_suite": {
+    "command_from_backend": "../venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider --junitxml=../artifacts/ml/tests.xml",
+    "passed": 160,
+    "subtests_passed": 75,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 1,
+    "warning": "Known StarletteDeprecationWarning: httpx with starlette.testclient",
+    "pytest_seconds": 63.16,
+    "junit_cases_including_subtests": 235,
+    "junit_seconds": 63.148,
+    "original_tests_preserved": 105,
+    "new_ml_tests": 55
+  },
+  "focused_phases": [
+    {"phase": "partition checks", "passed": 7, "seconds": 30.60},
+    {"phase": "preprocessing, scoring, evaluation", "passed": 26, "seconds": 37.82, "warnings": 1},
+    {"phase": "including artifact and lifecycle checks", "passed": 36, "seconds": 19.06},
+    {"phase": "final complete ML tests", "passed": 55, "seconds": 14.56, "warnings": 0}
+  ],
+  "resolved_intermediate_issues": [
+    "Sandbox blocked PyPI; approved escalation installed dependencies successfully.",
+    "Premature test collection during installation failed two sklearn imports; all passed after installation.",
+    "Overflow fixture initially warned; preprocessing now rejects overflow explicitly.",
+    "Matplotlib default cache was not writable; temporary-cache fallback completed all plots. Reproduction guide sets workspace MPLCONFIGDIR."
+  ],
+  "pip_check": "No broken requirements found",
+  "frozen_hash_matches_training_and_evaluation": true,
+  "development_and_regression_manifest_hashes_preserved": true,
+  "original_ingestion_features_api_and_data_diff_empty": true,
+  "scoring_smoke": {
+    "input": "data/v2/development.csv",
+    "output": "artifacts/ml/development_scores.csv",
+    "shape": [18000, 6],
+    "unique_txids": 18000,
+    "flagged": 7870,
+    "missing_cells": 0,
+    "interpretation": "Compatibility smoke test, not held-out evaluation"
+  },
+  "evaluation_plot_count": 4,
+  "generated_corpora_and_models_git_ignored": true,
+  "committed": false,
+  "pushed": false,
+  "merged": false
+}

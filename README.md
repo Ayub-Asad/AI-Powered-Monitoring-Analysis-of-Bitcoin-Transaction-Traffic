@@ -2,7 +2,7 @@
 
 Smart India Hackathon 2026 - PS 26146.
 
-Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, and transaction/wallet feature extraction. ML training, graph analysis and frontend are not implemented.
+Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, and offline transaction-only Isolation Forest anomaly detection. Graph analysis and frontend are not implemented.
 
 ## Repository
 
@@ -10,6 +10,9 @@ Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI hea
 - `backend/app/main.py`, `service.py`: existing FastAPI and upload handling.
 - `backend/app/money.py`: exact satoshi conversion.
 - `backend/app/features/`: behavioural tables, separate investigative context, explicit ML selections and CLI.
+- `backend/app/ml/`: strict preprocessing, Isolation Forest, calibration, heuristic, evaluation, artifact loading and offline CLI.
+- `configs/ml_baseline.json`, `scripts/prepare_ml_datasets.py`: fixed experiment settings and independent corpora.
+- `reports/ml/`: compact reproducibility manifests and evaluation summaries; large ML data/models are Git-ignored.
 - `scripts/btc_synthetic_dataset_generator.py`: generation CLI and retained legacy v1 generator.
 - `scripts/dataset_v2.py`: deterministic v2 actors and complete anomaly scenarios.
 - `scripts/validate_pipeline.py`: generation, full validation, feature exports, quality diagnostics and API checks.
@@ -17,11 +20,15 @@ Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI hea
 - `data/v2/`: development (18,000) and regression (1,000) CSV/JSONL datasets, ground-truth sidecars, manifests, features and reports.
 - `backend/tests/`: ingestion, API, generator, monetary and feature tests.
 
-Read [Dataset v2](docs/dataset_v2.md), [feature definitions](docs/features.md), and [measured milestone results](docs/milestone_validation.md).
+Read [Dataset v2](docs/dataset_v2.md), [feature definitions](docs/features.md), [measured milestone results](docs/milestone_validation.md), and the [ML experiment guide](docs/ml_anomaly_detection.md).
+
+The Isolation Forest ML milestone is complete. The frozen synthetic [ML results](docs/ml_results.md) for seed 42 are precision 18.79%, recall 55.22%, F1 0.2804 and false-positive rate 42.12%. The heuristic baseline performed better (F1 0.3291). Rapid-layering recall (19.63%) and peeling recall (27.65%) remain weak. All three fixed seeds, category recall and 1%/5%/10% alert-budget precision are reported without test-based tuning. These findings make no real-world deployment accuracy claim.
+
+The final read-only audit passed 160 tests plus 75 subtests in 52.90s, with zero failures/skips and the known Starlette/httpx warning, preserving all 105 prior tests. Full corpus regeneration and experiment model retraining were not rerun during that audit; saved predictions and reported evaluation metrics were independently verified. Regression tests exercised isolated temporary fixtures. The earlier implementation-validation run took 63.16s.
 
 ## Environment and commands
 
-Commands below are PowerShell commands from the repository root. The existing `venv` was used; no dependencies were installed during this milestone. Runtime dependencies are in `backend/requirements.txt`; test dependencies are in `backend/requirements-dev.txt`. Python 3.13.14 was used for validation. For a fresh environment, create a virtual environment and install the dev requirements.
+Commands below are PowerShell commands from the repository root. The existing `venv` is used. Runtime dependencies are in `backend/requirements.txt`; test/reporting dependencies are in `backend/requirements-dev.txt`. The ML milestone added scikit-learn, joblib and matplotlib, with a tested environment snapshot in `backend/requirements-ml-lock.txt`. Python 3.13.14 was used for validation. For a fresh environment, create a virtual environment and install the dev requirements, or the pinned lock file for exact ML reproduction.
 
 ```powershell
 Set-Location -LiteralPath 'C:\Users\Ayub Asad\Desktop\sih project'
@@ -77,4 +84,6 @@ API response shape and status handling remain unchanged: `GET /health`; multipar
 
 These are synthetic, internally consistent records, not a UTXO ledger, validated blockchain transactions or representative Bitcoin traffic. Amounts include change. Network links are observations, not ownership. Legacy exact flows are unavailable. Whole-window wallet aggregates are not causal online features. Port/geo scenarios may not be detectable from the default behavioural features alone. Address validation is structural, not checksum validation; coinbase and addressless outputs remain unsupported.
 
-Next: Isolation Forest anomaly detection with leakage-safe evaluation, explicit missing-value policy, time/group separation and preprocessing fitted only on training data. No ML model was trained in this milestone.
+The ML baseline uses 10 numerical transaction features, independent training/validation/test corpora with seeds 101/202/303, and model seeds 42/43/44. Training is normal-only by generation, preprocessing is fitted only on training data, and threshold calibration uses validation labels only. Test labels are opened only after all artifacts and thresholds are frozen. See the [ML guide](docs/ml_anomaly_detection.md) for installation, generation, training, evaluation, scoring and regeneration of ignored artifacts. Synthetic anomaly scores are not evidence of criminal activity or calibrated real-world probabilities.
+
+Next milestone: graph-based investigation of wallet relationships, transaction chains and temporal patterns, integrated with the existing ML anomaly scores. It is planned, not implemented in this handoff. Preserve the frozen ML baseline and distinguish address relationships from verified ownership.

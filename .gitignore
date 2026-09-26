@@ -43,3 +43,7 @@ Desktop.ini
 
 # Optional v1 reproduction output; preserve the original and v2 deliverables
 /data/regenerated_v1.csv
+
+# Reproducible ML corpora and fitted outputs; compact reports live in reports/ml
+/data/ml/
+/artifacts/ml/

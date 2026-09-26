@@ -66,6 +66,8 @@ Counterparties are co-occurrence relationships, not inferred allocation links: m
 
 ## Temporal and evaluation limits
 
+The implemented [ML baseline](ml_anomaly_detection.md) uses only the ordered 10 transaction features, with its own strict schema, train-only imputation and fixed log transforms. It preserves `ml_ready_frame` unchanged and does not consume the descriptive wallet tables. Labels and grouping metadata remain outside numerical preprocessing and fitting.
+
 Wallet aggregates cover the entire supplied observation window. They are suitable for offline descriptive analysis; they are not point-in-time online predictions. Historical scoring must extract from only information available at the scoring cutoff. New train/test periods must recompute aggregates independently and handle overlapping actors/scenarios deliberately. Reused wallet addresses can otherwise cause split leakage even though explicit labels never enter features.
 
 Synthetic labels are transaction/scenario-level. Wallets may participate in both normal and anomalous transactions; no wallet-level label is invented. A later evaluation milestone must define its wallet target and aggregation policy. Freeze splits before selecting/scaling features or tuning model thresholds. Port and geo scenarios may need separate contextual investigation rather than default behavioural detection.

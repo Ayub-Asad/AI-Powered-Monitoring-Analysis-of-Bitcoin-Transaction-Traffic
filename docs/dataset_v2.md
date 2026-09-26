@@ -2,6 +2,8 @@
 
 ## Version and files
 
+The later [ML milestone](ml_anomaly_detection.md) generates independent seed-101/202/303 corpora under ignored `data/ml/`, with nonoverlapping observation periods and separate label-free transaction/grouping files. Existing v2 files below are preserved. Development and regression reuse seed 42 and all 1,000 regression TXIDs overlap development; they must not be treated as independent ML training/test sets.
+
 The original `data/btc_synthetic_dataset.csv` is preserved. Its SHA-256 is `d854ff1bccbdc40ed1989f31bf94fdbe976750e641be0ae27d322e697217bfad`.
 
 The CLI defaults to v2; the existing `BitcoinDatasetGenerator` class and `--schema-version 1` retain legacy generation. V2 implementation is `BitcoinDatasetV2Generator` in `scripts/dataset_v2.py`. See README for exact regeneration commands.

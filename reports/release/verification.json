@@ -1,0 +1,76 @@
+{
+  "status": "WARNING: Linux packaging prepared; execution verification pending",
+  "branch": "feat/offline-linux-release",
+  "regression": {
+    "passed": 265,
+    "subtests_passed": 75,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 1,
+    "seconds": 176.96,
+    "command": "cd backend; ../venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider"
+  },
+  "release_tests": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 6.95,
+    "command": "venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider backend/tests/test_release.py"
+  },
+  "earlier_checks": {
+    "first_full_suite_seconds": 183.04,
+    "first_focused_pass_seconds": 97.66,
+    "initial_focused_failure": "1 import-path test failure, corrected before passing reruns",
+    "socket_denied_original_runtime_seconds": 73.69
+  },
+  "linux": {
+    "audit": "PASS for normal application runtime",
+    "packaging": "PREPARED",
+    "execution": "NOT VERIFIED",
+    "wheelhouse": "workflow prepared; no Linux wheels downloaded or resolved",
+    "environment": "No usable WSL distribution/runtime; Docker unavailable; Git Bash is not Linux"
+  },
+  "offline": {
+    "external_runtime_services": [],
+    "frontend_url": "http://www.w3.org/2000/svg is a non-fetching namespace",
+    "network_test": "Python socket connect/connect_ex/sendto and DNS denied in verifier; OS-level network isolation NOT performed",
+    "browser": "27 page requests, no external page requests, no JS exceptions"
+  },
+  "shell_checks": [
+    "bash syntax passed in Git Bash",
+    "missing wheelhouse rejected before venv creation",
+    "missing Linux .venv rejected by start.sh",
+    "wheelhouse builder rejected non-Linux host"
+  ],
+  "browser_runner": {
+    "flags": [
+      "--headless=new",
+      "--no-sandbox",
+      "--disable-gpu",
+      "--in-process-gpu",
+      "--disable-background-networking"
+    ],
+    "scope": "isolated temporary profile and loopback application only",
+    "initial_failures": "GPU process exit, then renderer timeout; final runner passed"
+  },
+  "restart": {
+    "method": "terminated only the test-owned Windows Uvicorn process; restarted on port 8017; repeated HTTP smoke",
+    "original_port_8000_process": "left untouched"
+  },
+  "limitations": [
+    "Exact CPython 3.13.14 and pinned Linux wheel availability must be established",
+    "Linux trusted artifact load/install/browser/Ctrl+C/restart and OS-network-disabled rehearsal pending",
+    "Preparation archive has no wheels and is not yet offline-installable",
+    "Known Starlette/httpx test warning remains",
+    "Synthetic-data performance and graph ownership/UTXO limitations unchanged"
+  ],
+  "production_changes": {
+    "generation": false,
+    "training": false,
+    "tuning": false,
+    "threshold_changes": false,
+    "committed": false,
+    "pushed": false,
+    "merged": false
+  }
+}

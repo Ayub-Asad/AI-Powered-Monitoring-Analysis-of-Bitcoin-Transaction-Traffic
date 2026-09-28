@@ -14,7 +14,7 @@ def build():
         data = (source / name).read_bytes()
         (target / name).write_bytes(data)
         manifest[name] = hashlib.sha256(data).hexdigest()
-    (target / 'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
+    (target / 'manifest.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8', newline='\n')
     print('Built 3 local assets:', target)
 
 

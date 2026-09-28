@@ -2,7 +2,7 @@
 
 Smart India Hackathon 2026 - PS 26146.
 
-Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, offline transaction-only Isolation Forest anomaly detection, bounded tuning, validation false-positive analysis, frozen final evaluation, graph investigation and the offline investigation dashboard. Linux offline prototype packaging is next.
+Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, offline transaction-only Isolation Forest anomaly detection, bounded tuning, validation false-positive analysis, frozen final evaluation, graph investigation and the offline investigation dashboard. Offline Linux packaging is prepared; actual Linux execution remains pending. See [offline installation and release preparation](README_OFFLINE.md).
 
 ## Start the investigation dashboard
 
@@ -13,7 +13,7 @@ Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI hea
 
 Open http://127.0.0.1:8000. One local Python process serves the API and all frontend assets. The first investigation request loads the existing development data and frozen tuned-42 artifact; allow time for inference and graph construction. No dataset generation or model training is required. See [dashboard architecture, endpoints and verification](docs/dashboard.md) and the [deterministic demo walkthrough](docs/demo_walkthrough.md).
 
-Dashboard verification: **255 tests + 75 subtests passed** in **221.67s**, zero failures/skips; focused API checks **33 passed** in **25.14s**. The production static build and real Edge browser smoke passed; all 248 protected-file hashes remain unchanged. One known Starlette/httpx deprecation warning remains. Windows was tested; Linux packaging/verification remains outstanding.
+Dashboard verification: **255 tests + 75 subtests passed** in **221.67s**, zero failures/skips; focused API checks **33 passed** in **25.14s**. The production static build and real Edge browser smoke passed; all 248 protected-file hashes remain unchanged. One known Starlette/httpx deprecation warning remains. Windows was tested. Current release verification: 265 tests + 75 subtests passed in 176.96s; 10 focused release tests passed in 6.95s. Linux packaging is prepared; Linux execution and wheel availability remain pending.
 
 ## Repository
 
@@ -101,7 +101,7 @@ These are synthetic, internally consistent records, not a UTXO ledger, validated
 
 The ML baseline uses 10 numerical transaction features, independent training/validation/test corpora with seeds 101/202/303, and model seeds 42/43/44. Training is normal-only by generation, preprocessing is fitted only on training data, and threshold calibration uses validation labels only. Test labels are opened only after all artifacts and thresholds are frozen. See the [ML guide](docs/ml_anomaly_detection.md) for installation, generation, training, evaluation, scoring and regeneration of ignored artifacts. Synthetic anomaly scores are not evidence of criminal activity or calibrated real-world probabilities.
 
-Graph investigation and its dashboard are implemented: see [the graph contract](docs/graph_investigation.md) and [dashboard guide](docs/dashboard.md). They preserve multi-input/output structure without claiming direct sender/recipient attribution or verified UTXO spends. Next milestone: Linux offline prototype packaging. Preserve the frozen ML baseline and distinguish address relationships from verified ownership.
+Graph investigation and its dashboard are implemented: see [the graph contract](docs/graph_investigation.md) and [dashboard guide](docs/dashboard.md). They preserve multi-input/output structure without claiming direct sender/recipient attribution or verified UTXO spends. Next step: disconnected Linux rehearsal using [the release checklist](docs/release_checklist.md). Preserve the frozen ML baseline and distinguish address relationships from verified ownership.
 
 ## Hyperparameter tuning and false-positive analysis
 

@@ -52,3 +52,8 @@ Desktop.ini
 /artifacts/graph/
 /artifacts/dashboard/
 node_modules/
+
+# Offline release outputs (source tooling remains tracked)
+/wheels/
+/releases/
+/artifacts/release/

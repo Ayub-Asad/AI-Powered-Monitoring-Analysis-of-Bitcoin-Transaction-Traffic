@@ -77,8 +77,11 @@ class CDP:
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--browser-port',type=int);args=p.parse_args()
-    started=time.perf_counter();base='http://127.0.0.1:8000'
+    p=argparse.ArgumentParser();p.add_argument('--browser-port',type=int)
+    p.add_argument('--output',type=Path,default=ROOT/'reports/dashboard/verification.json')
+    p.add_argument('--base-url',default='http://127.0.0.1:8000')
+    args=p.parse_args()
+    started=time.perf_counter();base=args.base_url.rstrip('/')
     overview=get(base+'/api/overview');assert overview['total_transactions']==18000
     alerts=get(base+'/api/alerts?flagged_only=true&limit=20')['items']
     assert all(a['anomaly_score']>=b['anomaly_score'] for a,b in zip(alerts,alerts[1:]))
@@ -163,8 +166,8 @@ def main():
     assert not changed,changed
     report['protected']=dict(files_checked=len(inventory),changed=changed)
     report['seconds']=round(time.perf_counter()-started,3)
-    target=ROOT/'reports/dashboard';target.mkdir(exist_ok=True)
-    (target/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
+    args.output.parent.mkdir(parents=True,exist_ok=True)
+    args.output.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 
 

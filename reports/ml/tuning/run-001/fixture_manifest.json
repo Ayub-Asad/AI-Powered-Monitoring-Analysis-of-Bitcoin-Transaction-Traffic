@@ -1,0 +1,541 @@
+{
+  "entries": [
+    {
+      "end": "2025-01-14T09:00:07+00:00",
+      "evidence": {
+        "manifest_sha256": "fb41dab869a26e494e58aba5fefd701446b0611dafc83b75d7bfacef1cbe0a1c"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 15300,
+        "scoped_actor": 586,
+        "scoped_scenario": 15300,
+        "txid": 15300,
+        "wallet": 5773
+      },
+      "must_precede_final": true,
+      "name": "train",
+      "records": 15300,
+      "scope": "train",
+      "start": "2025-01-01T01:09:34+00:00"
+    },
+    {
+      "end": "2025-02-14T09:00:36+00:00",
+      "evidence": {
+        "manifest_sha256": "fb41dab869a26e494e58aba5fefd701446b0611dafc83b75d7bfacef1cbe0a1c"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 16555,
+        "scoped_actor": 588,
+        "scoped_scenario": 16555,
+        "txid": 18000,
+        "wallet": 7013
+      },
+      "must_precede_final": true,
+      "name": "validation",
+      "records": 18000,
+      "scope": "validation",
+      "start": "2025-02-01T01:36:33+00:00"
+    },
+    {
+      "end": "2025-03-14T10:58:09+00:00",
+      "evidence": {
+        "manifest_sha256": "fb41dab869a26e494e58aba5fefd701446b0611dafc83b75d7bfacef1cbe0a1c"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 16555,
+        "scoped_actor": 587,
+        "scoped_scenario": 16555,
+        "txid": 18000,
+        "wallet": 6952
+      },
+      "must_precede_final": true,
+      "name": "test",
+      "records": 18000,
+      "scope": "test",
+      "start": "2025-03-01T01:28:49+00:00"
+    },
+    {
+      "end": "2025-01-14T09:13:22+00:00",
+      "evidence": {
+        "groups_sha256": "ab202f82d434c009c1608675f8b537c906dead42db2bf68d78bdecf1fa2fe136",
+        "transactions_sha256": "36c09d843e8d500197567a6c6cd65cdb2779570e04ceec7eb4879c11691f4327"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 16555,
+        "scoped_actor": 592,
+        "scoped_scenario": 16555,
+        "txid": 18000,
+        "wallet": 7059
+      },
+      "must_precede_final": true,
+      "name": "tracked-v2-development",
+      "records": 18000,
+      "scope": "v2-development",
+      "start": "2025-01-01T01:12:59+00:00"
+    },
+    {
+      "end": "2025-01-13T23:07:30+00:00",
+      "evidence": {
+        "groups_sha256": "04d99299aeb7f6328a28533d1e11977746338fbd368296fb20871d3802feeee8",
+        "transactions_sha256": "f59d3fba9e0ba0d1bd2277c363bd624a4a50af572eca75e700a6f0c2eaba1cb9"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 921,
+        "scoped_actor": 332,
+        "scoped_scenario": 921,
+        "txid": 1000,
+        "wallet": 1446
+      },
+      "must_precede_final": true,
+      "name": "tracked-v2-regression",
+      "records": 1000,
+      "scope": "v2-regression",
+      "start": "2025-01-01T05:20:34+00:00"
+    },
+    {
+      "end": "2025-01-05T02:57:35+00:00",
+      "evidence": {
+        "transactions_sha256": "d854ff1bccbdc40ed1989f31bf94fdbe976750e641be0ae27d322e697217bfad"
+      },
+      "grouping_available": false,
+      "identity_counts": {
+        "raw_scenario": 0,
+        "scoped_actor": 0,
+        "scoped_scenario": 0,
+        "txid": 8726,
+        "wallet": 5776
+      },
+      "must_precede_final": true,
+      "name": "tracked-v1",
+      "records": 8726,
+      "scope": null,
+      "start": "2025-01-01T00:00:07+00:00"
+    },
+    {
+      "end": "2025-03-13T09:32:05+00:00",
+      "evidence": {
+        "generation": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 303,
+          "start_time": "2025-03-01T00:00:00+00:00"
+        },
+        "groups_sha256": "2df943cb18134232b07a024c3c887d876d89f7a0abd2bb1788ac720c25ff733f",
+        "transactions_sha256": "c5c1a5bda39a55da344a65dc79080a4053595a061ac96e7095c2168b3d806345"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 63,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 206
+      },
+      "must_precede_final": false,
+      "name": "retained-fixture-01",
+      "records": 80,
+      "scope": "fixture-c5c1a5bda39a55da",
+      "start": "2025-03-01T09:37:18+00:00"
+    },
+    {
+      "end": "2025-01-13T08:40:45+00:00",
+      "evidence": {
+        "generation": {
+          "anomalous": 0,
+          "normal": 60,
+          "seed": 101,
+          "start_time": "2025-01-01T00:00:00+00:00"
+        },
+        "groups_sha256": "a65e8261bf141c044fae79bc2382fec677ba77ccf357ccf9977f5c58a8850dc2",
+        "transactions_sha256": "e1341035429323bae912f2c9598b1df50fb61cc3261fdea0163de7199fde20ed"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 60,
+        "scoped_actor": 49,
+        "scoped_scenario": 60,
+        "txid": 60,
+        "wallet": 166
+      },
+      "must_precede_final": false,
+      "name": "retained-fixture-02",
+      "records": 60,
+      "scope": "fixture-e1341035429323ba",
+      "start": "2025-01-02T23:39:59+00:00"
+    },
+    {
+      "end": "2025-02-13T11:11:52+00:00",
+      "evidence": {
+        "generation": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 202,
+          "start_time": "2025-02-01T00:00:00+00:00"
+        },
+        "groups_sha256": "e44dbc31ce911185de0262ba3a2d3633b4d422fa8b9be4ca17289567aa6b636a",
+        "transactions_sha256": "c99735deb078359153770b530c98dc5f4244d0692fe600275fbb7e062f165470"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 57,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 186
+      },
+      "must_precede_final": false,
+      "name": "retained-fixture-03",
+      "records": 80,
+      "scope": "fixture-c99735deb0783591",
+      "start": "2025-02-01T10:24:26+00:00"
+    },
+    {
+      "end": "2025-04-13T06:08:11+00:00",
+      "evidence": {
+        "generation": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 9404,
+          "start_time": "2025-04-01T00:00:00+00:00"
+        },
+        "groups_sha256": "9fd76597edd12fc1868035dbf293ab15079416b9009ab017d5a81f10b626b3b5",
+        "transactions_sha256": "1c3ecab9aee42cc0995a065ed53b1aec2e42d5e0726ba04b24ee1867e5ab8192"
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 62,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 215
+      },
+      "must_precede_final": false,
+      "name": "retained-fixture-04",
+      "records": 80,
+      "scope": "fixture-1c3ecab9aee42cc0",
+      "start": "2025-04-02T02:36:19+00:00"
+    },
+    {
+      "end": "2025-01-13T08:40:45+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 0,
+          "normal": 60,
+          "seed": 101,
+          "start_time": "2025-01-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 60,
+        "scoped_actor": 49,
+        "scoped_scenario": 60,
+        "txid": 60,
+        "wallet": 166
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-101-60-0",
+      "records": 60,
+      "scope": "fixture-v2-101-60-0",
+      "start": "2025-01-02T23:39:59+00:00"
+    },
+    {
+      "end": "2025-02-13T11:11:52+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 202,
+          "start_time": "2025-02-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 57,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 186
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-202-60-20",
+      "records": 80,
+      "scope": "fixture-v2-202-60-20",
+      "start": "2025-02-01T10:24:26+00:00"
+    },
+    {
+      "end": "2025-03-13T09:32:05+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 303,
+          "start_time": "2025-03-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 63,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 206
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-303-60-20",
+      "records": 80,
+      "scope": "fixture-v2-303-60-20",
+      "start": "2025-03-01T09:37:18+00:00"
+    },
+    {
+      "end": "2025-04-13T02:28:42+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 404,
+          "start_time": "2025-04-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 63,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 214
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-404-60-20",
+      "records": 80,
+      "scope": "fixture-v2-404-60-20",
+      "start": "2025-04-01T12:44:36+00:00"
+    },
+    {
+      "end": "2025-04-13T06:08:11+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 20,
+          "normal": 60,
+          "seed": 9404,
+          "start_time": "2025-04-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 72,
+        "scoped_actor": 62,
+        "scoped_scenario": 72,
+        "txid": 80,
+        "wallet": 215
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-9404-60-20",
+      "records": 80,
+      "scope": "fixture-v2-9404-60-20",
+      "start": "2025-04-02T02:36:19+00:00"
+    },
+    {
+      "end": "2025-01-08T14:38:27+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 1,
+          "normal": 0,
+          "seed": 42,
+          "start_time": "2025-01-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 1,
+        "scoped_actor": 1,
+        "scoped_scenario": 1,
+        "txid": 1,
+        "wallet": 4
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-42-0-1",
+      "records": 1,
+      "scope": "fixture-v2-42-0-1",
+      "start": "2025-01-08T14:38:27+00:00"
+    },
+    {
+      "end": "2025-01-08T14:38:27+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 2,
+          "normal": 0,
+          "seed": 42,
+          "start_time": "2025-01-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 2,
+        "scoped_actor": 2,
+        "scoped_scenario": 2,
+        "txid": 2,
+        "wallet": 6
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-42-0-2",
+      "records": 2,
+      "scope": "fixture-v2-42-0-2",
+      "start": "2025-01-05T01:34:02+00:00"
+    },
+    {
+      "end": "2025-01-12T07:08:16+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 7,
+          "normal": 0,
+          "seed": 42,
+          "start_time": "2025-01-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 7,
+        "scoped_actor": 7,
+        "scoped_scenario": 7,
+        "txid": 7,
+        "wallet": 19
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-42-0-7",
+      "records": 7,
+      "scope": "fixture-v2-42-0-7",
+      "start": "2025-01-05T01:34:02+00:00"
+    },
+    {
+      "end": "2025-01-12T02:27:35+00:00",
+      "evidence": {
+        "reason": "source-defined or known earlier fixture, including deleted temporary files",
+        "recipe": {
+          "anomalous": 150,
+          "normal": 0,
+          "seed": 42,
+          "start_time": "2025-01-01"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 71,
+        "scoped_actor": 66,
+        "scoped_scenario": 71,
+        "txid": 150,
+        "wallet": 293
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v2-42-0-150",
+      "records": 150,
+      "scope": "fixture-v2-42-0-150",
+      "start": "2025-01-01T08:20:19+00:00"
+    },
+    {
+      "end": "2025-01-01T12:00:38+00:00",
+      "evidence": {
+        "recipe": {
+          "anomalous": 120,
+          "normal": 600,
+          "seed": 7,
+          "start_time": "2025-01-01"
+        }
+      },
+      "grouping_available": false,
+      "identity_counts": {
+        "raw_scenario": 0,
+        "scoped_actor": 0,
+        "scoped_scenario": 0,
+        "txid": 952,
+        "wallet": 2084
+      },
+      "must_precede_final": false,
+      "name": "reconstructed-v1-7",
+      "records": 952,
+      "scope": null,
+      "start": "2025-01-01T00:00:20+00:00"
+    },
+    {
+      "end": null,
+      "evidence": {
+        "integer_txid_range": "0..4095 (conservative superset of helper calls)",
+        "source_files": {
+          "backend/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "backend/tests/helpers.py": "9c64eee09a62529d9e55fb25425df3fd263ed3c90c5202bd18b84d6af96f2ddd",
+          "backend/tests/test_api.py": "91d057810ac2eb420fdd06a3111222c39d14cce7186a6e21fd65d7d87d3da3e7",
+          "backend/tests/test_dataset_v2.py": "bf1435a70354ca359adb9bba4fcc043340a49a157f8f6bf00040a7630a7db3ed",
+          "backend/tests/test_features.py": "fd0e9bdeefa02c76a0bb78893b97cf6686c2e99226481c3f6b643347b4c22f75",
+          "backend/tests/test_ingestion.py": "c6b7e7c3afd5103503d3f549b468c04e8f5cfa898dd2ed8ad710f73e24fbe860",
+          "backend/tests/test_ml_artifacts.py": "bb36692e618f2f79c6ea6b3f9628b3cdd1e8c79acd9f3d94bd7ce3dd7a328f86",
+          "backend/tests/test_ml_evaluation.py": "85d3bba7c9f2541efa6a9152b9945d7b680f978ba980285e5cd9ca0233ceca1f",
+          "backend/tests/test_ml_final_evaluation.py": "497670bed8c2edadac45bcc6ac111a97abf7e30053d297c2cd50480e2053bc8b",
+          "backend/tests/test_ml_preprocessing.py": "848686a0b728938715768e2152978fa4bdc764965f9468d9ed66c7b9322deacf",
+          "backend/tests/test_ml_scoring.py": "29969ad227eac78df577b3945fcfad4c3f7e8d1c0e8afa9a924bcf0e81225e9e",
+          "backend/tests/test_ml_splits.py": "65ab55455d5c0dd23e69931f41f7e54953aea09677a866181a23387dbce648c6",
+          "backend/tests/test_ml_training.py": "e12dad808365a4aa584c420f7834ce1c624a0cbbf05e780c0037659d8f85b433",
+          "backend/tests/test_ml_tuning.py": "8a3c5c361f98029403f7c8b6eab09ad8177c6f614b0a70a382263de827681ede",
+          "backend/tests/test_service.py": "bee74b84c5c14421f273b94ab0ca5cc4a37b0d0311428993cad86f301a156042",
+          "backend/tests/test_validation_regressions.py": "8435546bf1715a9af8fce68e5fce8328aa1e4af166370f47bd342aecc5164632"
+        }
+      },
+      "grouping_available": true,
+      "identity_counts": {
+        "raw_scenario": 3,
+        "scoped_actor": 3,
+        "scoped_scenario": 3,
+        "txid": 4121,
+        "wallet": 476
+      },
+      "must_precede_final": false,
+      "name": "handwritten-fixture-identity-superset",
+      "records": null,
+      "scope": "manual",
+      "start": null
+    }
+  ],
+  "inventory_sha256": "5725ac3d0b8ded8a114e2063a5ff81fdd57dee5b0559cc1fc760154caaaf2005",
+  "known_generated_fixture_seeds": [
+    7,
+    42,
+    101,
+    202,
+    303,
+    404,
+    9404
+  ],
+  "limits": "Audits known source-defined, retained, and reconstructed fixtures; cannot inventory unknown external/private data. Legacy/manual rows may have no actor/scenario metadata.",
+  "retained_transaction_files": 68,
+  "test_source_hashes": {
+    "backend/tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/tests/helpers.py": "9c64eee09a62529d9e55fb25425df3fd263ed3c90c5202bd18b84d6af96f2ddd",
+    "backend/tests/test_api.py": "91d057810ac2eb420fdd06a3111222c39d14cce7186a6e21fd65d7d87d3da3e7",
+    "backend/tests/test_dataset_v2.py": "bf1435a70354ca359adb9bba4fcc043340a49a157f8f6bf00040a7630a7db3ed",
+    "backend/tests/test_features.py": "fd0e9bdeefa02c76a0bb78893b97cf6686c2e99226481c3f6b643347b4c22f75",
+    "backend/tests/test_ingestion.py": "c6b7e7c3afd5103503d3f549b468c04e8f5cfa898dd2ed8ad710f73e24fbe860",
+    "backend/tests/test_ml_artifacts.py": "bb36692e618f2f79c6ea6b3f9628b3cdd1e8c79acd9f3d94bd7ce3dd7a328f86",
+    "backend/tests/test_ml_evaluation.py": "85d3bba7c9f2541efa6a9152b9945d7b680f978ba980285e5cd9ca0233ceca1f",
+    "backend/tests/test_ml_final_evaluation.py": "497670bed8c2edadac45bcc6ac111a97abf7e30053d297c2cd50480e2053bc8b",
+    "backend/tests/test_ml_preprocessing.py": "848686a0b728938715768e2152978fa4bdc764965f9468d9ed66c7b9322deacf",
+    "backend/tests/test_ml_scoring.py": "29969ad227eac78df577b3945fcfad4c3f7e8d1c0e8afa9a924bcf0e81225e9e",
+    "backend/tests/test_ml_splits.py": "65ab55455d5c0dd23e69931f41f7e54953aea09677a866181a23387dbce648c6",
+    "backend/tests/test_ml_training.py": "e12dad808365a4aa584c420f7834ce1c624a0cbbf05e780c0037659d8f85b433",
+    "backend/tests/test_ml_tuning.py": "8a3c5c361f98029403f7c8b6eab09ad8177c6f614b0a70a382263de827681ede",
+    "backend/tests/test_service.py": "bee74b84c5c14421f273b94ab0ca5cc4a37b0d0311428993cad86f301a156042",
+    "backend/tests/test_validation_regressions.py": "8435546bf1715a9af8fce68e5fce8328aa1e4af166370f47bd342aecc5164632"
+  },
+  "unique_retained_identity_files": 4
+}

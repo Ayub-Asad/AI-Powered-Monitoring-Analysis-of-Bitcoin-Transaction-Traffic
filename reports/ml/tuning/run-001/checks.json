@@ -1,0 +1,40 @@
+{
+  "commands": [
+    "cd backend; ..\\venv\\Scripts\\python.exe -B -m pytest -q -p no:cacheprovider",
+    "cd backend; ..\\venv\\Scripts\\python.exe -B -m app.ml.tuning tune --config ../configs/ml_tuning.json",
+    ".\\venv\\Scripts\\python.exe -B -m pip check"
+  ],
+  "fixture_exposure": "Earlier isolated final fixtures reused seed 404 with 60 normal and 20 anomalous records. The normal prefix may overlap production seed 404. No fixture metrics influenced selection. Future fixtures use seed 9404. Awaiting approval to reserve 405 or retain 404 with disclosure.",
+  "focused_runs": [
+    {
+      "passed": 19,
+      "seconds": 86.82
+    },
+    {
+      "passed": 22,
+      "seconds": 55.67
+    },
+    {
+      "note": "after fixture seed correction to 9404",
+      "passed": 22,
+      "seconds": 74.55
+    }
+  ],
+  "full_suite": {
+    "failures": 0,
+    "passed": 182,
+    "seconds": 128.82,
+    "skips": 0,
+    "subtests_passed": 75,
+    "warning": "Known Starlette/httpx TestClient deprecation",
+    "warnings": 1
+  },
+  "pip_check": "No broken requirements found",
+  "prior_full_suite_seconds": 148.62,
+  "production_final_evaluated": false,
+  "production_final_generated": false,
+  "protected_files_unchanged": 58,
+  "status": "awaiting_user_final_seed_decision",
+  "tuning_fits": 36,
+  "tuning_seconds": 171.48706690000108
+}

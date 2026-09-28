@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "date": "2026-09-29",
+  "backend": {"passed": 255, "subtests_passed": 75, "failed": 0, "skipped": 0, "warnings": 1, "seconds": 221.67},
+  "focused_api": {"passed": 33, "failed": 0, "skipped": 0, "warnings": 1, "seconds": 25.14},
+  "warning": "Known Starlette/httpx TestClient deprecation",
+  "frontend_build": "PASS: three local static assets and SHA-256 manifest; Python build, no Node dependency",
+  "pip_check": "PASS: no broken requirements",
+  "platform": "Windows; Linux not executed",
+  "history": "Initial verification exposed an incorrect repository-root path. Fixed before focused and complete passing reruns."
+}

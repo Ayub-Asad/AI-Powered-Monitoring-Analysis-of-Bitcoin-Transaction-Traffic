@@ -1,3 +1,17 @@
+# Investigation dashboard implemented - 2026-09-29
+
+Current branch: `feat/investigation-dashboard`. The local offline investigation application is implemented. Next milestone: Linux offline prototype packaging. This section supersedes earlier milestone-status statements; historical sections remain below. No commit, push or merge performed.
+
+- One FastAPI process serves the static production workspace and bounded `/api` health, overview, ranked alerts, transaction/address details, graph, timeline, search and chronological trace endpoints. Existing ingestion routes retain their contracts.
+- `frontend/src/` uses local HTML/CSS/JavaScript and SVG; `scripts/build_dashboard.py` creates the ignored static build without Node or frontend dependencies. The navy/cyan/amber workspace includes queue pagination, exact/partial search, selectable graph nodes, zoom/pan/reset, bounded 1–3 hop expansion, ordered trace highlighting, details, timeline and separate network context.
+- Lazy lock-protected loading reuses canonical ingestion, existing frozen tuned-42 inference and the existing graph JSON v1 contract. Default dataset is development.csv; no production generation, fitting, tuning or recalibration. All 248 inventoried protected files retain their hashes.
+- Measured live overview: 18,000 transactions, 7,059 addresses, 60,836 relationships and 6,153 frozen-threshold flags; dataset/model identities and counts come from loaded data. Initial load measured 39.161s during concurrent verification; this is not a performance benchmark.
+- Full regression: 255 passed + 75 subtests, zero failures/skips, one known Starlette/httpx warning, 221.67s. Focused API checks: 33 passed, 25.14s. Production asset build and pip check passed. An initial root-path defect was fixed before the passing rerun.
+- Real headless Edge browser smoke exercised queue selection, multi-hop expansion, address inspection, timeline, search, chronological path highlighting and zoom/reset. No page JavaScript exceptions or external page requests. Evaluation-selected demonstration reconstructed 30 transactions within 58 seconds; this is not a model discovery or evidence of illicit activity.
+- See `docs/dashboard.md`, `docs/demo_walkthrough.md` and `reports/dashboard/`. Browser profiles/screenshots are ignored in `artifacts/dashboard/`. Linux itself was not executed; package existing datasets/trusted artifacts and compatible dependencies, then verify on target Linux before claiming offline Linux readiness.
+
+---
+
 # Graph investigation implemented - 2026-09-28
 
 Current branch: `feat/graph-investigation`. ML baseline and hyperparameter tuning remain complete and frozen. The offline graph backend is implemented; next milestone is API/dashboard integration and offline prototype packaging. The dashboard is not implemented. This section supersedes earlier next-milestone statements; all historical sections below are retained. No commit, push or merge performed.

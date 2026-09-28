@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "overview": {
+    "total_transactions": 18000,
+    "total_addresses": 7059,
+    "graph_edges": 60836,
+    "flagged_transactions": 6153,
+    "flagged_percentage": 34.18333333333333,
+    "scored_transactions": 18000,
+    "model_identifiers": [
+      "tuned-42:b8998f9bca11f212350d93a2c95c65cd948a627788f3016e6551502b309ea43a"
+    ],
+    "graph_status": "ready",
+    "dataset_identifier": "development.csv",
+    "dataset_sha256": "619ab33950a3ea7788da7733919a43ba322452c2fc2589bb232ace79db33002b",
+    "load_seconds": 39.161,
+    "score_status": "ready"
+  },
+  "queue_first_txid": "6438536fd7ddeb015a2a0a7e5cc5f0d2df04d600d9ea0592c9fa3f1a41db3202",
+  "address": "1ESbdF6ACUgGWDe9fvPjeisQRNLWvzPJtE",
+  "demo": {
+    "first": "c03fa0edd88742770a0d009c75c20f5d979dd2ae1d4ef22203f390aed54c0f46",
+    "last": "3ca9331ae6d7bbb004e69a8f7ef31114e4b034954a3b4d33536d4ac2ef7e913e",
+    "summary": {
+      "transaction_count": 30,
+      "elapsed_seconds": 58.0,
+      "reason": "30 address-linked transactions within 58 seconds"
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "viewports": [
+      "1366x768",
+      "1920x1080",
+      "768x900"
+    ],
+    "requests": 27,
+    "external_requests": [],
+    "exceptions": [],
+    "checks": [
+      "queue click",
+      "network context",
+      "1/2/3 hops",
+      "address selection",
+      "expansion",
+      "timeline",
+      "exact search",
+      "chronological trace",
+      "path highlight",
+      "zoom",
+      "reset",
+      "pan",
+      "no results",
+      "invalid input",
+      "request failure"
+    ]
+  },
+  "protected": {
+    "files_checked": 248,
+    "changed": []
+  },
+  "seconds": 64.252
+}

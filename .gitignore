@@ -50,3 +50,5 @@ Desktop.ini
 
 # Local graph verification inventories and optional investigation exports
 /artifacts/graph/
+/artifacts/dashboard/
+node_modules/

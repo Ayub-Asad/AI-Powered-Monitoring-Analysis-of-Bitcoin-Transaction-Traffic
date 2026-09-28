@@ -5,7 +5,7 @@ Smart India Hackathon 2026, PS 26146: AI-Powered Monitoring & Analysis of Bitcoi
 - Read PROJECT_CONTEXT.md and README.md before changes. Actual code and executed tests are the source of truth; historical notes may be superseded.
 - Preserve working ingestion, API contracts, legacy data and historical context. Make targeted changes and test them.
 - Work on the requested branch. Do not commit, push or merge without explicit instruction.
-- Completed milestones: offline transaction-only Isolation Forest anomaly detection, hyperparameter tuning and offline graph investigation. Next milestone: API/dashboard integration and offline prototype packaging. The dashboard is not implemented.
+- Completed milestones: offline transaction-only Isolation Forest anomaly detection, hyperparameter tuning, graph investigation and offline investigation API/dashboard. Next milestone: Linux offline prototype packaging.
 - Treat generated data as synthetic Bitcoin-like observations, not verified on-chain transactions, actual GeoIP results or evidence of wallet ownership.
 - v2: amount_btc is the sum of all outputs including change; inputs equal outputs plus fees. Use integer satoshis for monetary accounting.
 - Preserve legacy warning-only count validation. Enforce strict paired amount arrays, address/count lengths and conservation for v2.
@@ -47,3 +47,12 @@ Smart India Hackathon 2026, PS 26146: AI-Powered Monitoring & Analysis of Bitcoi
 - Graph construction/traversal must never consume evaluation labels, categories or actor/scenario metadata. Only verification scripts/tests may use sidecars to select evaluation examples.
 - Keep node/edge/search limits, deterministic JSON v1, unknown score state, provenance and truncation visible to dashboard consumers. Network fields are reported/synthetic transaction context, not ownership evidence.
 - See `docs/graph_investigation.md` and `reports/graph/` for exact commands and measured verification. Next: API/dashboard integration and offline prototype packaging. No commit, push or merge without explicit instruction.
+
+## Dashboard handoff - 2026-09-29
+
+- `backend/app/investigation.py` wraps the existing canonical graph and frozen inference with bounded read-only `/api` routes. Existing `/health` and `/ingest` contracts are preserved; uploads do not replace the investigation dataset.
+- `frontend/src/` is dependency-free HTML/CSS/JavaScript with a local SVG renderer. Run `scripts/build_dashboard.py` before serving; ignored `frontend/dist/` is the production build. No Node/CDN/cloud runtime dependency.
+- Keep score ranking in alerts `items` separate from deterministic graph `nodes` ordering. Preserve null score states, factual reasons, truncation, synthetic context and strict chronological trace semantics. Do not introduce new risk thresholds or ownership claims.
+- Complete suite: 255 passed + 75 subtests in 221.67s, no failures/skips, one known Starlette/httpx warning. Focused API suite: 33 passed in 25.14s. Production build, real Edge browser investigation smoke and pip check passed; 248 protected hashes unchanged.
+- Documentation: `docs/dashboard.md`, `docs/demo_walkthrough.md`; compact verification: `reports/dashboard/`. Demo sequence is evaluation-selected, not a model discovery. No production generation, retraining or retuning occurred.
+- Windows runtime verified. Linux wheels, trusted artifact compatibility, packaging and Linux execution remain the next milestone. No commit, push or merge without explicit instruction.

@@ -2,12 +2,26 @@
 
 Smart India Hackathon 2026 - PS 26146.
 
-Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, offline transaction-only Isolation Forest anomaly detection, bounded tuning, validation false-positive analysis, frozen final evaluation and offline graph investigation. API/dashboard graph integration and offline prototype packaging are next; the dashboard is not implemented.
+Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, offline transaction-only Isolation Forest anomaly detection, bounded tuning, validation false-positive analysis, frozen final evaluation, graph investigation and the offline investigation dashboard. Linux offline prototype packaging is next.
+
+## Start the investigation dashboard
+
+```powershell
+.\venv\Scripts\python.exe -B scripts/build_dashboard.py
+.\venv\Scripts\python.exe -B -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
+```
+
+Open http://127.0.0.1:8000. One local Python process serves the API and all frontend assets. The first investigation request loads the existing development data and frozen tuned-42 artifact; allow time for inference and graph construction. No dataset generation or model training is required. See [dashboard architecture, endpoints and verification](docs/dashboard.md) and the [deterministic demo walkthrough](docs/demo_walkthrough.md).
+
+Dashboard verification: **255 tests + 75 subtests passed** in **221.67s**, zero failures/skips; focused API checks **33 passed** in **25.14s**. The production static build and real Edge browser smoke passed; all 248 protected-file hashes remain unchanged. One known Starlette/httpx deprecation warning remains. Windows was tested; Linux packaging/verification remains outstanding.
 
 ## Repository
 
 - `backend/app/ingestion/`: readers, canonical schema, validation, reports, CLI.
 - `backend/app/main.py`, `service.py`: existing FastAPI and upload handling.
+- `backend/app/investigation.py`: read-only investigation API and lazy frozen-score graph loading.
+- `frontend/src/`: local static workspace, SVG graph renderer and interaction state.
+- `scripts/build_dashboard.py`, `scripts/smoke_dashboard.py`: production asset build and HTTP/browser verification.
 - `backend/app/money.py`: exact satoshi conversion.
 - `backend/app/features/`: behavioural tables, separate investigative context, explicit ML selections and CLI.
 - `backend/app/ml/`: strict preprocessing, Isolation Forest, calibration, heuristic, evaluation, artifact loading and offline CLI.
@@ -87,7 +101,7 @@ These are synthetic, internally consistent records, not a UTXO ledger, validated
 
 The ML baseline uses 10 numerical transaction features, independent training/validation/test corpora with seeds 101/202/303, and model seeds 42/43/44. Training is normal-only by generation, preprocessing is fitted only on training data, and threshold calibration uses validation labels only. Test labels are opened only after all artifacts and thresholds are frozen. See the [ML guide](docs/ml_anomaly_detection.md) for installation, generation, training, evaluation, scoring and regeneration of ignored artifacts. Synthetic anomaly scores are not evidence of criminal activity or calibrated real-world probabilities.
 
-Graph investigation is implemented: see [the graph contract, workflow and exact commands](docs/graph_investigation.md). It preserves multi-input/output structure without claiming direct sender/recipient attribution or verified UTXO spends. Next milestone: API/dashboard integration and offline prototype packaging. Preserve the frozen ML baseline and distinguish address relationships from verified ownership.
+Graph investigation and its dashboard are implemented: see [the graph contract](docs/graph_investigation.md) and [dashboard guide](docs/dashboard.md). They preserve multi-input/output structure without claiming direct sender/recipient attribution or verified UTXO spends. Next milestone: Linux offline prototype packaging. Preserve the frozen ML baseline and distinguish address relationships from verified ownership.
 
 ## Hyperparameter tuning and false-positive analysis
 

@@ -1,0 +1,37 @@
+{
+  "amendment_focused": {
+    "passed": 17,
+    "seconds": 6.34
+  },
+  "committed_pushed_merged": false,
+  "date": "2026-09-28",
+  "final_corpus_checksums_verified": true,
+  "final_evaluation_sha256": "aada13792589639fcc7ddf40f5695c353d0f78b13f18a7a77584f60fc18821f2",
+  "final_prediction_report_checksums_verified": true,
+  "final_workflow_seconds": 20.630923699999585,
+  "fixture_reference_populations": 21,
+  "full_suite": {
+    "failed": 0,
+    "passed": 199,
+    "passing_subtests": 75,
+    "seconds": 195.75,
+    "skipped": 0,
+    "warning": "Known Starlette/httpx TestClient deprecation",
+    "warnings": 1
+  },
+  "git_branch": "feat/ml-tuning-fp-analysis",
+  "identity_overlaps": 0,
+  "interrupted_suite": "Earlier session lost before a final result was recovered; not claimed passed. Complete rerun recorded above.",
+  "original_frozen_sha256": "7e3bce36e9fdc964106881c17b43955454bd2c948e4ecf8e439b9f2121f7e6b9",
+  "original_tuning_frozen_files_unchanged": 130,
+  "pip_check": "No broken requirements found",
+  "production_final_evaluations": 1,
+  "production_refits_after_selection": 0,
+  "production_tuning_fits": 36,
+  "protected_original_files_unchanged": 58,
+  "report_arithmetic_verified_without_rescoring": true,
+  "required_chronology_passed": true,
+  "reservation_sha256": "c2d6a5a8c8e9ef2e4297de334e60754276022cb82f6b239d438357d0e6809ae9",
+  "status": "complete",
+  "test_log": "artifacts/ml/tuning/regression-20260928.log"
+}

@@ -2,7 +2,7 @@
 
 Smart India Hackathon 2026 - PS 26146.
 
-Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, and offline transaction-only Isolation Forest anomaly detection. Graph analysis and frontend are not implemented.
+Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, offline transaction-only Isolation Forest anomaly detection, bounded tuning, validation false-positive analysis and frozen final evaluation. Graph analysis and frontend are not implemented.
 
 ## Repository
 
@@ -87,3 +87,13 @@ These are synthetic, internally consistent records, not a UTXO ledger, validated
 The ML baseline uses 10 numerical transaction features, independent training/validation/test corpora with seeds 101/202/303, and model seeds 42/43/44. Training is normal-only by generation, preprocessing is fitted only on training data, and threshold calibration uses validation labels only. Test labels are opened only after all artifacts and thresholds are frozen. See the [ML guide](docs/ml_anomaly_detection.md) for installation, generation, training, evaluation, scoring and regeneration of ignored artifacts. Synthetic anomaly scores are not evidence of criminal activity or calibrated real-world probabilities.
 
 Next milestone: graph-based investigation of wallet relationships, transaction chains and temporal patterns, integrated with the existing ML anomaly scores. It is planned, not implemented in this handoff. Preserve the frozen ML baseline and distinguish address relationships from verified ownership.
+
+## Hyperparameter tuning and false-positive analysis
+
+The bounded 12-configuration search fitted seeds 42/43/44 (36 fits) and selected 200 trees, 1,024 samples, max_features 0.8, no bootstrap. See [the protocol and reproduction commands](docs/ml_tuning.md), [validation false-positive findings](docs/ml_false_positive_analysis.md), and [all measured results](docs/ml_tuning_results.md).
+
+The approved fresh final corpus uses seed 405: April 2025, 15,300 normal and 2,700 injected anomalous transactions. Seed 404 was replaced because early regression fixtures used it; the original model freeze stayed unchanged. All 21 reference populations passed identity audits before scoring. Required chronological periods do not overlap; independent April fixture windows are explicitly disclosed.
+
+On the same final population, mean top-1% precision rose from 27.59% (original IF) to 30.19% (tuned IF), with recall only 1.84% versus 2.01%. Mean F1 improved from 0.2871 to 0.2967 and FPR fell from 39.00% to 34.63%, but mean threshold recall declined from 53.80% to 51.62%. The heuristic retains higher F1 (0.3347). Tuned seed-42 rapid-layering/peeling recall is only 11.11%/19.75%. This is a modest synthetic ranking improvement, not deployment accuracy or evidence of criminality.
+
+Final checks: 199 tests plus 75 subtests passed in 195.75s, zero failures/skips, one known Starlette/httpx warning; pip check passes. All 58 protected baseline/data files and 130 frozen tuning files are unchanged. Final evaluation ran once in 20.63s; no production refitting, retuning, recalibration or ensemble was performed. Existing ingestion/API/feature contracts are unchanged. Graph investigation remains a separate next milestone.

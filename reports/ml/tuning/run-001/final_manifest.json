@@ -1,0 +1,373 @@
+{
+  "corpora": {
+    "final": {
+      "complete_scenarios": true,
+      "files": {
+        "final.groups.jsonl": "284dfad8ecf6b97f7b86338aedfe1be3cfa5121ad5856c971f3be7f1bfe35603",
+        "final.labels.jsonl": "3de77273d2ab1b9b892be670d620ff3f4b332ad60c87fcfcab40aa894dcb2a99",
+        "final.transactions.jsonl": "6ccfe9486aba5aa9591ad099650e8ee881525f974dc2dc78a01851c30e55fd14"
+      },
+      "generation": {
+        "anomalous": 2700,
+        "normal": 15300,
+        "seed": 405,
+        "start_time": "2025-04-01T00:00:00+00:00"
+      },
+      "records": 18000
+    }
+  },
+  "generation_seconds": 5.824258600000576,
+  "identity_audit": {
+    "comparisons": [
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": true,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "train",
+        "time_overlap": false,
+        "time_policy": "strict earlier partition"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": true,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "validation",
+        "time_overlap": false,
+        "time_policy": "strict earlier partition"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": true,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "test",
+        "time_overlap": false,
+        "time_policy": "strict earlier partition"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": true,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "tracked-v2-development",
+        "time_overlap": false,
+        "time_policy": "strict earlier partition"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": true,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "tracked-v2-regression",
+        "time_overlap": false,
+        "time_policy": "strict earlier partition"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": false,
+        "must_precede_final": true,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "tracked-v1",
+        "time_overlap": false,
+        "time_policy": "strict earlier partition"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "retained-fixture-01",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "retained-fixture-02",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "retained-fixture-03",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": false,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "retained-fixture-04",
+        "time_overlap": true,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-101-60-0",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-202-60-20",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-303-60-20",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": false,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-404-60-20",
+        "time_overlap": true,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": false,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-9404-60-20",
+        "time_overlap": true,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-42-0-1",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-42-0-2",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-42-0-7",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v2-42-0-150",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": true,
+        "grouping_available": false,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "reconstructed-v1-7",
+        "time_overlap": false,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      },
+      {
+        "chronologically_before_final": null,
+        "grouping_available": true,
+        "must_precede_final": false,
+        "overlaps": {
+          "raw_scenario": 0,
+          "scoped_actor": 0,
+          "scoped_scenario": 0,
+          "txid": 0,
+          "wallet": 0
+        },
+        "reference": "handwritten-fixture-identity-superset",
+        "time_overlap": null,
+        "time_policy": "independent regression fixture; shared calendar permitted"
+      }
+    ],
+    "final": {
+      "end": "2025-04-14T11:21:47+00:00",
+      "grouping_available": true,
+      "records": 18000,
+      "scope": "final-405",
+      "start": "2025-04-01T00:46:07+00:00"
+    },
+    "final_identity_counts": {
+      "raw_scenario": 16555,
+      "scoped_actor": 591,
+      "scoped_scenario": 16555,
+      "txid": 18000,
+      "wallet": 7003
+    },
+    "passed": true,
+    "scope_note": "Actors are local generator names scoped by independently generated corpus; raw scenario hashes and actual wallets are also compared. Scope does not establish wallet ownership."
+  },
+  "original_frozen_sha256": "7e3bce36e9fdc964106881c17b43955454bd2c948e4ecf8e439b9f2121f7e6b9",
+  "reservation_sha256": "c2d6a5a8c8e9ef2e4297de334e60754276022cb82f6b239d438357d0e6809ae9",
+  "seed_change": {
+    "approval_date": "2026-09-27",
+    "final_data_dir": "data/ml/tuning/final-405",
+    "final_test": {
+      "anomalous": 2700,
+      "normal": 15300,
+      "seed": 405,
+      "start_time": "2025-04-01T00:00:00+00:00"
+    },
+    "fixture_inventory": "artifacts/ml/tuning/run-001/fixture_inventory.json",
+    "reason": "User approved seed 405 because earlier regression fixtures used seed 404. Models, preprocessing, thresholds, selection, ranking and comparison policies remain frozen.",
+    "report_dir": "reports/ml/tuning/run-001",
+    "run_dir": "artifacts/ml/tuning/run-001",
+    "supersedes_seed": 404,
+    "version": "transaction-iforest-final405-v1"
+  }
+}

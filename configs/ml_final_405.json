@@ -1,0 +1,11 @@
+﻿{
+  "version": "transaction-iforest-final405-v1",
+  "run_dir": "artifacts/ml/tuning/run-001",
+  "report_dir": "reports/ml/tuning/run-001",
+  "final_data_dir": "data/ml/tuning/final-405",
+  "fixture_inventory": "artifacts/ml/tuning/run-001/fixture_inventory.json",
+  "final_test": {"seed": 405, "start_time": "2025-04-01T00:00:00+00:00", "normal": 15300, "anomalous": 2700},
+  "supersedes_seed": 404,
+  "reason": "User approved seed 405 because earlier regression fixtures used seed 404. Models, preprocessing, thresholds, selection, ranking and comparison policies remain frozen.",
+  "approval_date": "2026-09-27"
+}

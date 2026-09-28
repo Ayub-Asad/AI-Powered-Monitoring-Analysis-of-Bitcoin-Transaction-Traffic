@@ -1,0 +1,102 @@
+{
+  "amendment": {
+    "approval_date": "2026-09-27",
+    "final_data_dir": "data/ml/tuning/final-405",
+    "final_test": {
+      "anomalous": 2700,
+      "normal": 15300,
+      "seed": 405,
+      "start_time": "2025-04-01T00:00:00+00:00"
+    },
+    "fixture_inventory": "artifacts/ml/tuning/run-001/fixture_inventory.json",
+    "reason": "User approved seed 405 because earlier regression fixtures used seed 404. Models, preprocessing, thresholds, selection, ranking and comparison policies remain frozen.",
+    "report_dir": "reports/ml/tuning/run-001",
+    "run_dir": "artifacts/ml/tuning/run-001",
+    "supersedes_seed": 404,
+    "version": "transaction-iforest-final405-v1"
+  },
+  "amendment_source_sha256": "b7f81e06df19a28f66ba843059d79625db583fcb9e620603edb8568388efa9e1",
+  "fixture_inventory_sha256": "5725ac3d0b8ded8a114e2063a5ff81fdd57dee5b0559cc1fc760154caaaf2005",
+  "fixture_manifest_sha256": "5e8a27ea586d230acffa213625a8359a2c2b4f7e580c97a6f4c4f23186ec5c71",
+  "models": {
+    "baseline-heuristic": {
+      "budget_cutoffs": {
+        "1%": 463.1794850752533,
+        "10%": 27.4650137090956,
+        "2%": 336.943376049713,
+        "5%": 204.9530739868352
+      },
+      "path": "baseline-heuristic"
+    },
+    "baseline-iforest-42": {
+      "budget_cutoffs": {
+        "1%": 0.6414394704529995,
+        "10%": 0.5710320252591264,
+        "2%": 0.6220978557074768,
+        "5%": 0.596115493348747
+      },
+      "path": "baseline-iforest-42"
+    },
+    "baseline-iforest-43": {
+      "budget_cutoffs": {
+        "1%": 0.6401026484557881,
+        "10%": 0.5710959244193331,
+        "2%": 0.6200204789517535,
+        "5%": 0.5955342867882556
+      },
+      "path": "baseline-iforest-43"
+    },
+    "baseline-iforest-44": {
+      "budget_cutoffs": {
+        "1%": 0.6360557999410803,
+        "10%": 0.5694840417356992,
+        "2%": 0.6175441130611736,
+        "5%": 0.5936028252482092
+      },
+      "path": "baseline-iforest-44"
+    },
+    "tuned-42": {
+      "budget_cutoffs": {
+        "1%": 0.6362247382824057,
+        "10%": 0.5651550587629682,
+        "2%": 0.6158331455259558,
+        "5%": 0.5904250936061599
+      },
+      "path": "tuned-42"
+    },
+    "tuned-43": {
+      "budget_cutoffs": {
+        "1%": 0.6321348985325248,
+        "10%": 0.5618965092021634,
+        "2%": 0.6125361632792148,
+        "5%": 0.5864398570323935
+      },
+      "path": "tuned-43"
+    },
+    "tuned-44": {
+      "budget_cutoffs": {
+        "1%": 0.6381682179882842,
+        "10%": 0.5640330024341177,
+        "2%": 0.6157028390009507,
+        "5%": 0.5881986090658472
+      },
+      "path": "tuned-44"
+    }
+  },
+  "original_frozen_sha256": "7e3bce36e9fdc964106881c17b43955454bd2c948e4ecf8e439b9f2121f7e6b9",
+  "ranking_budgets": [
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "reservation_sha256": "c2d6a5a8c8e9ef2e4297de334e60754276022cb82f6b239d438357d0e6809ae9",
+  "selected_parameters": {
+    "bootstrap": false,
+    "max_features": 0.8,
+    "max_samples": 1024,
+    "n_estimators": 200
+  },
+  "status": "reserved",
+  "unchanged_policy": "All fitting, preprocessing, selected artifacts, thresholds and ranking/selection/comparison policies are inherited verbatim from original freeze."
+}

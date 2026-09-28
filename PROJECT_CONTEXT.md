@@ -1,3 +1,23 @@
+# Tuning milestone complete - 2026-09-28
+
+The approved hyperparameter-tuning, validation false-positive analysis and one-shot final evaluation are complete on `feat/ml-tuning-fp-analysis`. No commit, push or merge has been performed or authorized. Graph investigation remains the next separate milestone. All prior baseline/history sections below are retained.
+
+- Deterministic search: 12 configurations, seeds 42/43/44, exactly 36 production fits in 171.49s. Selected: 200 trees, max_samples 1024, max_features 0.8, bootstrap false. No ensemble.
+- Primary validation objective: mean precision at exact top 1%; selected 28.52%, recall 1.90%, mean 51.33 true / 128.67 false alerts. Mean validation F1 0.319837. The 1% recall condition is feasibility only.
+- Early temporary fixtures reused seed 404 (60 normal / 20 anomalous), potentially exposing its first 60 normal records. No fixture metrics drove selection. The user approved seed 405 instead; future generated fixtures use 9404 and amendment tests mock data without generating 405.
+- configs/ml_final_405.json and seed_change.json record an additive amendment binding the unchanged original freeze. All fitted models, preprocessing, thresholds, ranking rules, selection and comparator policies stayed frozen. No production tuning/refitting was repeated.
+- Fresh final: seed 405, exactly 18,000 records (15,300 normal / 2,700 anomalies), April 1 00:46:07 through April 14 11:21:47 UTC 2025; 7,003 wallets, 591 scoped generating actors, 16,555 scenarios. Generation 5.82s; total final workflow 20.63s; evaluated once.
+- Identity audit: 21 reference populations, including original partitions, tracked v1/v2, 68 retained fixture files/four unique retained identity sets, known reconstructed fixtures and handwritten identities. Zero overlapping TXIDs, wallets, scoped actors/scenarios and raw scenarios where metadata exists. Required earlier-partition chronology passed. Three independent April fixture comparisons intentionally overlap calendar time; legacy grouping metadata is unavailable, not fabricated.
+- Fresh-test mean top-1% precision: original IF 27.59% versus tuned 30.19%; recall 1.84% versus 2.01%; mean true alerts 49.67 versus 54.33 of 180. A modest improvement on this synthetic population, not operational adequacy.
+- Mean frozen-threshold F1: 0.2871 original versus 0.2967 tuned; FPR 39.00% versus 34.63%; recall declines 53.80% to 51.62%. Heuristic F1 remains higher at 0.3347. Tuned seed-42 rapid-layering recall 11.11% and peeling recall 19.75% are worse than original 24.63%/26.91%; retained unchanged.
+- Exact rankings and threshold flags are separate at 1%/2%/5%/10%. All seven models have precision/recall/F1/FPR/AP/PR-AUC/ROC-AUC, confusion matrices, category recall, alert counts and false alerts per 1,000 normal. Seed means/population SD are reported without selecting a best test seed.
+- Validation-only false positives concentrate in tiny amounts and high fees. Global historical intensity uses [t-60s,t), excluding ties, and remains outside the unchanged 10-feature model contract. Hypotheses are not causal explanations.
+- Full suite: 199 passed + 75 subtests, zero failures/skips, one known Starlette/httpx warning, 195.75s. Amendment checks: 17 passed in 6.34s. Earlier 182-test and focused-phase history is retained in reports. One interrupted test session had no recoverable completion result and was rerun rather than claimed passed. pip check and Git diff/hygiene checks passed.
+- All 58 protected baseline/data files and 130 original tuning-frozen files retain their hashes. Generated corpora, models, identity inventories and scores are ignored. Overwrite and one-shot guards remain active.
+- See docs/ml_tuning.md, docs/ml_false_positive_analysis.md, docs/ml_tuning_results.md and reports/ml/tuning/run-001/. Source and exact reproduction commands are documented. Shared generator mechanisms, limited scenario support and synthetic prevalence preclude real-world accuracy/ownership/criminality claims.
+
+---
+
 # Current milestone status - 2026-09-26
 
 The offline transaction-only Isolation Forest milestone is complete and validated on `feat/ml-anomaly-detection`. Documentation handoff, commit and push of this branch are user-authorized after final verification; merging into main and branch deletion are not authorized. The earlier milestone/history below is retained; this section describes the current implementation.

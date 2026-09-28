@@ -1,0 +1,21 @@
+﻿{
+  "experiment_version": "transaction-iforest-tuning-v1",
+  "baseline_config": "configs/ml_baseline.json",
+  "baseline_run": "artifacts/ml/baseline",
+  "run_dir": "artifacts/ml/tuning/run-001",
+  "report_dir": "reports/ml/tuning/run-001",
+  "final_data_dir": "data/ml/tuning/final-404",
+  "model_seeds": [42, 43, 44],
+  "search_seed": 26146,
+  "search_budget": 12,
+  "grid": {"n_estimators": [100, 200, 300, 500], "max_samples": [256, 512, 1024], "max_features": [0.6, 0.8, 1.0], "bootstrap": [false, true]},
+  "selection": {"primary": "mean_validation_precision_at_1_percent", "minimum_mean_recall": 0.01, "ties": ["mean_validation_f1_descending", "canonical_configuration_ascending"], "infeasible": "stop_without_final_evaluation"},
+  "alert_budgets": [0.01, 0.02, 0.05, 0.10],
+  "alert_rounding": "ceil",
+  "alert_tie_break": "txid_ascending",
+  "threshold_policy": "validation_f1_and_validation_budget_score_cutoffs_ge",
+  "comparison_policy": "all_frozen_baseline_seeds_and_heuristic_same_population_original_f1_thresholds_validation_budget_cutoffs",
+  "final_test": {"seed": 404, "start_time": "2025-04-01T00:00:00+00:00", "normal": 15300, "anomalous": 2700},
+  "activity_window_seconds": 60,
+  "ensemble": false
+}

@@ -1,0 +1,64 @@
+{
+  "activity_window_seconds": 60,
+  "alert_budgets": [
+    0.01,
+    0.02,
+    0.05,
+    0.1
+  ],
+  "alert_rounding": "ceil",
+  "alert_tie_break": "txid_ascending",
+  "baseline_config": "configs/ml_baseline.json",
+  "baseline_run": "artifacts/ml/baseline",
+  "comparison_policy": "all_frozen_baseline_seeds_and_heuristic_same_population_original_f1_thresholds_validation_budget_cutoffs",
+  "ensemble": false,
+  "experiment_version": "transaction-iforest-tuning-v1",
+  "final_data_dir": "data/ml/tuning/final-404",
+  "final_test": {
+    "anomalous": 2700,
+    "normal": 15300,
+    "seed": 404,
+    "start_time": "2025-04-01T00:00:00+00:00"
+  },
+  "grid": {
+    "bootstrap": [
+      false,
+      true
+    ],
+    "max_features": [
+      0.6,
+      0.8,
+      1.0
+    ],
+    "max_samples": [
+      256,
+      512,
+      1024
+    ],
+    "n_estimators": [
+      100,
+      200,
+      300,
+      500
+    ]
+  },
+  "model_seeds": [
+    42,
+    43,
+    44
+  ],
+  "report_dir": "reports/ml/tuning/run-001",
+  "run_dir": "artifacts/ml/tuning/run-001",
+  "search_budget": 12,
+  "search_seed": 26146,
+  "selection": {
+    "infeasible": "stop_without_final_evaluation",
+    "minimum_mean_recall": 0.01,
+    "primary": "mean_validation_precision_at_1_percent",
+    "ties": [
+      "mean_validation_f1_descending",
+      "canonical_configuration_ascending"
+    ]
+  },
+  "threshold_policy": "validation_f1_and_validation_budget_score_cutoffs_ge"
+}

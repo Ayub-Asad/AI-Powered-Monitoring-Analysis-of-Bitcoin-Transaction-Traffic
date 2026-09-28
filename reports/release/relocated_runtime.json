@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "seconds": 45.082,
+  "network_test": "Python socket connect/connect_ex/sendto/DNS denied; not OS isolation",
+  "overview": {
+    "total_transactions": 18000,
+    "total_addresses": 7059,
+    "graph_edges": 60836,
+    "flagged_transactions": 6153,
+    "flagged_percentage": 34.18333333333333,
+    "scored_transactions": 18000,
+    "model_identifiers": [
+      "tuned-42:b8998f9bca11f212350d93a2c95c65cd948a627788f3016e6551502b309ea43a"
+    ],
+    "graph_status": "ready",
+    "dataset_identifier": "development.csv",
+    "dataset_sha256": "619ab33950a3ea7788da7733919a43ba322452c2fc2589bb232ace79db33002b",
+    "load_seconds": 40.741,
+    "score_status": "ready"
+  },
+  "demo_transaction": "6438536fd7ddeb015a2a0a7e5cc5f0d2df04d600d9ea0592c9fa3f1a41db3202",
+  "demo_address": "1ESbdF6ACUgGWDe9fvPjeisQRNLWvzPJtE",
+  "trace": {
+    "transaction_count": 30,
+    "elapsed_seconds": 58.0,
+    "reason": "30 address-linked transactions within 58 seconds"
+  }
+}

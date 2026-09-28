@@ -1,3 +1,34 @@
+# Offline Linux release packaging prepared - 2026-09-29
+
+Current branch: `feat/offline-linux-release`. This section supersedes prior current-status statements; historical sections remain below. No commit, push or merge.
+
+| Milestone | Status |
+|---|---|
+| Dataset generation | COMPLETE |
+| Ingestion | COMPLETE |
+| Feature engineering | COMPLETE |
+| ML baseline | COMPLETE |
+| ML tuning/evaluation | COMPLETE |
+| Graph investigation | COMPLETE |
+| Investigation API | COMPLETE |
+| Dashboard | COMPLETE |
+| Offline packaging | PREPARED |
+| Linux execution verification | PENDING |
+| Final prototype testing | Windows regression and socket-denied runtime PASS; Linux disconnected rehearsal PENDING |
+
+- Release scripts use file-relative roots, Bash with LF, loopback startup and strict offline wheel installation. Runtime source/semantics and frozen artifacts are unchanged.
+- The existing artifact loader requires **CPython 3.13.14 exactly** and recorded scientific versions. `backend/requirements-offline-lock.txt` pins the installed runtime closure. No broader Python compatibility or Linux wheel availability is claimed.
+- `scripts/release.py` hashes 65 allowlisted runtime files, verifies integrity and packages the existing development CSV, one trusted tuned-42 artifact, local frontend and runtime tooling. Models/wheels/bundles remain ignored. Git alone is not a runnable model release.
+- `README_OFFLINE.md` describes compatible-Linux wheel preparation and completely offline installation. `docs/release_checklist.md` leaves actual clean-Linux/network-disabled rehearsal unchecked. WSL did not provide a usable Linux runtime; Docker was not available.
+- Complete regression: **265 passed + 75 subtests**, zero failures/skips, one known Starlette/httpx warning, **176.96s**. Focused release checks: **10 passed, 6.95s**. An initial root-invoked release test import failure was corrected before the passing rerun.
+- Python socket-denied runtime verification passed in **73.690s**: 18,000 scored transactions, 7,059 addresses, 60,836 relationships, 6,153 flags, known demo transaction/address and 30-transaction/58-second sequence. This is process-level denial, not OS network isolation. Live HTTP smoke passed in **30.043s** on a separate loopback server at port 8017 because 8000 was already occupied.
+- Bash syntax and missing-wheelhouse/missing-environment/non-Linux-builder failure checks passed in Git Bash. pip check passed; all 248 protected-file hashes remain unchanged. No production generation, retraining, retuning or changed benchmark claims.
+- Dashboard build now writes its generated manifest with LF on both platforms, preventing checksum drift on Linux rebuild. The 65-file preparation bundle (66 archive members) was extracted to a path containing spaces, rebuilt and checksum-verified; socket-denied inference/graph checks passed there in **45.082s** without the original working directory.
+- Real Edge page smoke passed at 1366x768, 1920x1080 and 768x900 in **10.038s**, with 27 page requests, zero external page requests and zero JavaScript exceptions. The isolated browser runner needed software/GPU and sandbox workarounds in this host; application settings were unchanged. Windows server termination/restart HTTP smoke passed in **42.720s**. This does not substitute for the pending Linux Ctrl+C/browser/disconnected rehearsal.
+- Current measured evidence is in `reports/release/`. Linux packaging prepared; execution verification pending. The remaining release gate is matching Linux wheels plus actual offline install/start/browser/restart rehearsal.
+
+---
+
 # Investigation dashboard implemented - 2026-09-29
 
 Current branch: `feat/investigation-dashboard`. The local offline investigation application is implemented. Next milestone: Linux offline prototype packaging. This section supersedes earlier milestone-status statements; historical sections remain below. No commit, push or merge performed.
@@ -352,9 +383,9 @@ before the API is demoed live): boot-test `uvicorn app.main:app` and the two
 routes on a machine with network access, using the commands above. Everything
 the route handlers do has been exercised through `process_upload` directly.
 
-## Current Task
+## Historical task (superseded by completed milestones above)
 
-Feature engineering (not started). Consume `IngestionResult.transactions`.
+At that historical point: feature engineering had not started. Consume `IngestionResult.transactions`.
 Do NOT read `ground_truth` in feature code. Generator rework (input_amounts[] /
 output_amounts[], less separable anomalies) is still pending and may require
 updating `schema.py` (add optional list fields) and the address/amount

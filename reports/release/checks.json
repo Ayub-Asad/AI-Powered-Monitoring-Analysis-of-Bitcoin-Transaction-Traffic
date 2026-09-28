@@ -1,0 +1,32 @@
+{
+  "pip_check": {
+    "exit_code": 0,
+    "seconds": 1.084,
+    "output": "No broken requirements found.",
+    "stderr": ""
+  },
+  "git_diff_check": {
+    "exit_code": 0,
+    "seconds": 0.073,
+    "output": "",
+    "stderr": "warning: in the working copy of 'scripts/build_dashboard.py', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'scripts/smoke_dashboard.py', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "bash_syntax": {
+    "exit_code": 0,
+    "seconds": 1.814,
+    "output": "",
+    "stderr": ""
+  },
+  "protected": {
+    "files_checked": 248,
+    "changed": []
+  },
+  "preparation_archive": {
+    "path": "releases/bitcoin-offline-prepared.tar.gz",
+    "sha256": "c8ee0374305f86656857f0109e83a6aa2986bb9c6afdcab207013befde5f189b",
+    "bytes": 5894413,
+    "contains_wheels": false,
+    "runtime_files": 65,
+    "archive_members": 66
+  }
+}

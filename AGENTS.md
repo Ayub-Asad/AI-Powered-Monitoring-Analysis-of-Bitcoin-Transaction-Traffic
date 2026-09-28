@@ -5,7 +5,7 @@ Smart India Hackathon 2026, PS 26146: AI-Powered Monitoring & Analysis of Bitcoi
 - Read PROJECT_CONTEXT.md and README.md before changes. Actual code and executed tests are the source of truth; historical notes may be superseded.
 - Preserve working ingestion, API contracts, legacy data and historical context. Make targeted changes and test them.
 - Work on the requested branch. Do not commit, push or merge without explicit instruction.
-- Completed milestones: offline transaction-only Isolation Forest anomaly detection, hyperparameter tuning, graph investigation and offline investigation API/dashboard. Next milestone: Linux offline prototype packaging.
+- Completed milestones: offline transaction-only Isolation Forest anomaly detection, hyperparameter tuning, graph investigation and offline investigation API/dashboard. Offline Linux packaging is prepared; actual Linux verification is pending.
 - Treat generated data as synthetic Bitcoin-like observations, not verified on-chain transactions, actual GeoIP results or evidence of wallet ownership.
 - v2: amount_btc is the sum of all outputs including change; inputs equal outputs plus fees. Use integer satoshis for monetary accounting.
 - Preserve legacy warning-only count validation. Enforce strict paired amount arrays, address/count lengths and conservation for v2.
@@ -56,3 +56,13 @@ Smart India Hackathon 2026, PS 26146: AI-Powered Monitoring & Analysis of Bitcoi
 - Complete suite: 255 passed + 75 subtests in 221.67s, no failures/skips, one known Starlette/httpx warning. Focused API suite: 33 passed in 25.14s. Production build, real Edge browser investigation smoke and pip check passed; 248 protected hashes unchanged.
 - Documentation: `docs/dashboard.md`, `docs/demo_walkthrough.md`; compact verification: `reports/dashboard/`. Demo sequence is evaluation-selected, not a model discovery. No production generation, retraining or retuning occurred.
 - Windows runtime verified. Linux wheels, trusted artifact compatibility, packaging and Linux execution remain the next milestone. No commit, push or merge without explicit instruction.
+
+## Offline release handoff - 2026-09-29
+
+- Packaging prepared on `feat/offline-linux-release`; Linux execution remains PENDING. Use README_OFFLINE.md and docs/release_checklist.md. Do not claim Linux wheels, clean-machine installation or OS network isolation passed until actually run.
+- Frozen trusted artifact requires exact CPython 3.13.14 and pinned scientific versions. Preserve the compatibility guard and backend/requirements-offline-lock.txt; no retraining or artifact rewriting for portability.
+- scripts/release.py packages an explicit runtime allowlist, including the ignored tuned-42 model. A Git clone is not a complete release. Build matching Linux wheels with scripts/build_wheelhouse.sh before producing an offline-installable bundle.
+- install.sh uses only local binary wheels; start.sh binds 127.0.0.1:8000. Shell files use LF and can be invoked with bash; archives assign executable permissions.
+- Regression: 265 passed + 75 subtests, zero failures/skips, known warning, 176.96s. Focused release tests: 10 passed in 6.95s. Socket-denied runtime checks passed in 73.690s; this is Python process-level testing, not OS isolation. All 248 protected files unchanged.
+- Final remaining task is Linux/disconnected rehearsal, not feature development. Keep historical results and limitations. No commit, push or merge without explicit instruction.
+- Relocated minimal-bundle inference passed with Python networking denied (45.082s). Edge page smoke passed at three viewport sizes with zero external page requests/exceptions; Windows process stop/restart HTTP check passed. Dashboard asset-manifest output uses explicit LF to preserve cross-platform checksums.

@@ -1,3 +1,19 @@
+# Graph investigation implemented - 2026-09-28
+
+Current branch: `feat/graph-investigation`. ML baseline and hyperparameter tuning remain complete and frozen. The offline graph backend is implemented; next milestone is API/dashboard integration and offline prototype packaging. The dashboard is not implemented. This section supersedes earlier next-milestone statements; all historical sections below are retained. No commit, push or merge performed.
+
+- `backend/app/graph/`: deterministic bipartite address/transaction graph, exact repeated-allocation aggregation, nullable legacy values, descriptive address/component statistics, bounded lookups/neighbourhoods, chronological paths/sequences, timelines and filters.
+- JSON contract `bitcoin-investigation-v1` includes score/threshold/flag/model identity, contextual network provenance, factual reasons, semantic styling and explicit truncation. Scores remain optional and unknown flags remain null.
+- Frozen inference reuses the ordered ten-feature ML interface and trusted artifact loader. No production generation, fitting, tuning, recalibration or historical result changes. Graph/scenario metadata never enters ML features.
+- Network observations remain contextual, not blockchain-native fields or ownership evidence. Address-linked paths do not prove particular UTXO spends, common ownership or criminality; equal timestamps do not establish ordering.
+- Complete backend regression suite: 228 passed plus 75 passing subtests, zero failures/skips, one known Starlette/httpx warning, 128.93s. Focused graph suite: 29 passed, zero failures/skips, 1.59s. Existing tests may fit/generate isolated fixtures; no production experiments were run.
+- Existing development graph: 18,000 transactions, 7,059 addresses, 25,059 total nodes, 60,836 directed relationships. Tuned seed-42 inference attaches scores to every transaction, with 6,153 frozen-threshold flags; this is a development smoke count, not a new accuracy result.
+- Evaluation-only scenario verification reconstructs consecutive pairs for a 30-transaction layering and 24-transaction peeling example. Full layering and three-transaction previews are found; long peeling search reaches its configured state bound. That limit is disclosed, not interpreted as disconnection.
+- Exact measured timings, protected-file verification and example IDs: `reports/graph/verification.json`. Test results: `reports/graph/tests.json`. Contract, limitations and reproduction: `docs/graph_investigation.md`. Generated graph exports/inventories are ignored under `artifacts/graph/`.
+- No new HTTP routes or frontend. Future API work must manage graph lifecycle, pagination and request limits. Python implementation is offline and Linux-compatible; execution here used Windows, not a Linux runtime.
+
+---
+
 # Tuning milestone complete - 2026-09-28
 
 The approved hyperparameter-tuning, validation false-positive analysis and one-shot final evaluation are complete on `feat/ml-tuning-fp-analysis`. No commit, push or merge has been performed or authorized. Graph investigation remains the next separate milestone. All prior baseline/history sections below are retained.

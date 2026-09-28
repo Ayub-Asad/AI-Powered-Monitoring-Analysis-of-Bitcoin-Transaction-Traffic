@@ -47,3 +47,6 @@ Desktop.ini
 # Reproducible ML corpora and fitted outputs; compact reports live in reports/ml
 /data/ml/
 /artifacts/ml/
+
+# Local graph verification inventories and optional investigation exports
+/artifacts/graph/

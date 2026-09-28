@@ -1,0 +1,93 @@
+{
+  "addresses": 7059,
+  "artifact": "artifacts/ml/tuning/run-001/tuned-42",
+  "artifact_manifest_sha256": "b8998f9bca11f212350d93a2c95c65cd948a627788f3016e6551502b309ea43a",
+  "bounded_summary": {
+    "address_count": 3,
+    "edge_count": 9,
+    "flagged_transaction_count": 3,
+    "node_count": 10,
+    "scored_transaction_count": 7,
+    "transaction_count": 7
+  },
+  "dataset": "data/v2/development.csv",
+  "edges": 60836,
+  "examples": {
+    "peeling_chain": {
+      "adjacent_pairs_reconstructed": 23,
+      "end_to_end_found": false,
+      "end_to_end_truncated": true,
+      "end_to_end_truncation_reason": "search_state_limit",
+      "evaluation_only": true,
+      "first_txid": "ba9208d9396f852c878fc241ff597be1c8c90847e2aea1d15d5672709495fb92",
+      "full_scenario_order_reconstructed": false,
+      "last_txid": "2568812f0001fe87d071ced9f2661d83a3a9cad074c130c209ab06d661b2eeae",
+      "returned_sequence": {
+        "elapsed_seconds": 0,
+        "transaction_count": 0
+      },
+      "scenario_transaction_count": 24,
+      "seconds": 0.05024849999972503,
+      "three_transaction_preview": {
+        "elapsed_seconds": 778.0,
+        "reason": "3 address-linked transactions within 778 seconds",
+        "transaction_count": 3
+      }
+    },
+    "rapid_fire_layering": {
+      "adjacent_pairs_reconstructed": 29,
+      "end_to_end_found": true,
+      "end_to_end_truncated": false,
+      "end_to_end_truncation_reason": null,
+      "evaluation_only": true,
+      "first_txid": "c03fa0edd88742770a0d009c75c20f5d979dd2ae1d4ef22203f390aed54c0f46",
+      "full_scenario_order_reconstructed": true,
+      "last_txid": "3ca9331ae6d7bbb004e69a8f7ef31114e4b034954a3b4d33536d4ac2ef7e913e",
+      "returned_sequence": {
+        "elapsed_seconds": 58.0,
+        "reason": "30 address-linked transactions within 58 seconds",
+        "transaction_count": 30
+      },
+      "scenario_transaction_count": 30,
+      "seconds": 0.1646309999996447,
+      "three_transaction_preview": {
+        "elapsed_seconds": 5.0,
+        "reason": "3 address-linked transactions within 5 seconds",
+        "transaction_count": 3
+      }
+    }
+  },
+  "flagged_transactions": 6153,
+  "nodes": 25059,
+  "protected": {
+    "changed": [],
+    "files_checked": 248
+  },
+  "representative_address": "1137CirjNXN7YC9z4pNb76DsiTzCooHRQf",
+  "representative_txid": "000b010ba00d12bc267605857217ce1b9dffb9b04eb4b93055cad29c2b11b5b6",
+  "scope": "Synthetic development smoke verification, not model evaluation or verified UTXO tracing",
+  "scored_transactions": 18000,
+  "seconds": {
+    "address_lookup": 0.0011827999987872317,
+    "frozen_inference": 3.6043346999995265,
+    "ingestion": 5.743794100000741,
+    "limited_three_hop": 0.0011063000001740875,
+    "scored_construction": 5.014662400000816,
+    "suspicious_neighbourhood": 0.018223099999886472,
+    "three_hop": 0.01683469999989029,
+    "timeline": 0.0012105999994673766,
+    "transaction_lookup": 0.00028559999918797985,
+    "unscored_construction": 6.737463800000114
+  },
+  "status": "PASS",
+  "three_hop_summary": {
+    "address_count": 141,
+    "edge_count": 370,
+    "flagged_transaction_count": 43,
+    "node_count": 245,
+    "scored_transaction_count": 104,
+    "transaction_count": 104
+  },
+  "three_hop_truncated": false,
+  "transactions": 18000
+}

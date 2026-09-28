@@ -5,7 +5,7 @@ Smart India Hackathon 2026, PS 26146: AI-Powered Monitoring & Analysis of Bitcoi
 - Read PROJECT_CONTEXT.md and README.md before changes. Actual code and executed tests are the source of truth; historical notes may be superseded.
 - Preserve working ingestion, API contracts, legacy data and historical context. Make targeted changes and test them.
 - Work on the requested branch. Do not commit, push or merge without explicit instruction.
-- Completed milestone: offline transaction-only Isolation Forest anomaly detection. Next milestone: graph-based investigation of wallet relationships, transaction chains and temporal patterns, integrated with existing ML anomaly scores. Graph implementation requires a separate task; do not implement it during the ML documentation/commit handoff. Frontend remains outside scope.
+- Completed milestones: offline transaction-only Isolation Forest anomaly detection, hyperparameter tuning and offline graph investigation. Next milestone: API/dashboard integration and offline prototype packaging. The dashboard is not implemented.
 - Treat generated data as synthetic Bitcoin-like observations, not verified on-chain transactions, actual GeoIP results or evidence of wallet ownership.
 - v2: amount_btc is the sum of all outputs including change; inputs equal outputs plus fees. Use integer satoshis for monetary accounting.
 - Preserve legacy warning-only count validation. Enforce strict paired amount arrays, address/count lengths and conservation for v2.
@@ -38,3 +38,12 @@ Smart India Hackathon 2026, PS 26146: AI-Powered Monitoring & Analysis of Bitcoi
 - Complete suite: 199 passed + 75 subtests in 195.75s, zero failures/skips, one known Starlette/httpx warning; pip check passes. All 58 protected baseline/data files and 130 original tuning-frozen files are unchanged. See docs/ml_tuning_results.md and reports/ml/tuning/run-001/.
 - Seed 405 is now a published benchmark, not an untouched test for future model selection. Preserve both freezes and the one-shot/overwrite guards. Never use final results to choose settings, seeds or budgets, or remove difficult examples.
 - Historical global activity diagnostics use [t-60s,t), exclude tied timestamps and remain outside the 10-feature model contract. Graph relationships and causal temporal investigation remain the next separate milestone. No commit, push or merge without explicit instruction.
+
+## Graph investigation handoff - 2026-09-28
+
+- `backend/app/graph/` consumes canonical transactions and optional frozen scores; no graph ML or changes to ingestion/features/ML freezes.
+- Preserve bipartite address -> transaction -> address semantics. Never infer specific input/output attribution, ownership or verified UTXO spends. Address-linked chronological paths require strictly increasing transaction times; ties are not ordered.
+- Aggregate repeated allocations in integer satoshis; count each address/transaction once in transaction counts. Preserve null legacy allocations and source count mismatches.
+- Graph construction/traversal must never consume evaluation labels, categories or actor/scenario metadata. Only verification scripts/tests may use sidecars to select evaluation examples.
+- Keep node/edge/search limits, deterministic JSON v1, unknown score state, provenance and truncation visible to dashboard consumers. Network fields are reported/synthetic transaction context, not ownership evidence.
+- See `docs/graph_investigation.md` and `reports/graph/` for exact commands and measured verification. Next: API/dashboard integration and offline prototype packaging. No commit, push or merge without explicit instruction.

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "complete_suite": {
+    "command": "cd backend; ../venv/Scripts/python.exe -B -m pytest -q -p no:cacheprovider",
+    "passed": 228,
+    "subtests_passed": 75,
+    "failed": 0,
+    "skipped": 0,
+    "warnings": 1,
+    "seconds": 128.93
+  },
+  "graph_suite": {
+    "command": "cd backend; ../venv/Scripts/python.exe -B -m pytest tests/test_graph.py -q -p no:cacheprovider",
+    "passed": 29,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 1.59
+  },
+  "warning": "Known unrelated Starlette/httpx deprecation",
+  "initial_graph_iteration": {
+    "passed": 26,
+    "failed": 3,
+    "seconds": 20.14,
+    "resolution": "Corrected handwritten fixture node/component counts, explicit nanosecond timestamp dtype, and numeric missing-value/model-output fixture types. Final graph suite and complete suite passed."
+  },
+  "production_training_or_generation": false,
+  "note": "Existing regression tests retain isolated temporary fitting/generation fixtures; no production corpora generated or model training/tuning experiment run."
+}

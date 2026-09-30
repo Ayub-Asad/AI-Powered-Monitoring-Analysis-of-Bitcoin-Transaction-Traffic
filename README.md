@@ -4,6 +4,18 @@ Smart India Hackathon 2026 - PS 26146.
 
 Implemented: CSV/JSON/JSONL ingestion, validation and deduplication, FastAPI health/upload routes, deterministic synthetic Dataset v2, transaction/wallet feature extraction, offline transaction-only Isolation Forest anomaly detection, bounded tuning, validation false-positive analysis, frozen final evaluation, graph investigation and the offline investigation dashboard. Offline Linux packaging is prepared; actual Linux execution remains pending. See [offline installation and release preparation](README_OFFLINE.md).
 
+## SIH Prototype Demo
+
+- Live Prototype: [LIVE PROTOTYPE] ? URL to be added after deployment.
+- Demo Video: [DEMO VIDEO] ? URL to be added.
+- Docker Image: [DOCKER IMAGE] ? `ghcr.io/<github-owner>/<repository-name>:sih-2026` (publication pending).
+- Source: [GITHUB REPOSITORY] ? repository URL to be added.
+- [Public demo/container guide](docs/PUBLIC_DEMO.md); [local/offline deployment](README_OFFLINE.md).
+
+Synthetic demonstration data only. Anomaly scores are investigative indicators,
+not probabilities of crime. Address/network relationships do not prove ownership
+or identity. The hosted evaluation demo complements local/offline operation.
+
 ## Start the investigation dashboard
 
 ```powershell

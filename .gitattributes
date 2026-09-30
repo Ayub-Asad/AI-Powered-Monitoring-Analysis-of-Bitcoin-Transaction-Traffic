@@ -1,1 +1,4 @@
 *.sh text eol=lf
+scripts/build_dashboard.py text eol=lf
+scripts/release.py text eol=lf
+scripts/verify_runtime.py text eol=lf

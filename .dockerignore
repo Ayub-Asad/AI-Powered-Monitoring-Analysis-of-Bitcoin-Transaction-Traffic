@@ -1,0 +1,27 @@
+# Deny by default: no Git, venv, secrets, reports, archives, caches or tests.
+**
+!Dockerfile
+!.dockerignore
+!backend/
+!backend/requirements-offline-lock.txt
+!backend/app/
+!backend/app/**/
+!backend/app/**/*.py
+!frontend/
+!frontend/src/
+!frontend/src/index.html
+!frontend/src/app.js
+!frontend/src/styles.css
+!data/
+!data/v2/
+!data/v2/development.csv
+!scripts/
+!scripts/build_dashboard.py
+!scripts/stage_demo_model.py
+!deploy/
+!deploy/*.py
+!deploy/model_checksums.json
+!.container-model/
+!.container-model/pipeline.joblib
+!.container-model/manifest.json
+!.container-model/threshold.json

@@ -1,0 +1,66 @@
+name: Publish SIH demo image
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+concurrency:
+  group: publish-sih-demo
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - name: Obtain the reviewed frozen artifact release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          mkdir -p .container-model
+          gh release download frozen-demo-model --pattern pipeline.joblib --pattern manifest.json --pattern threshold.json --dir .container-model
+          python3 scripts/stage_demo_model.py --verify-only --model-dir .container-model
+      - name: Image name
+        id: image
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: echo "name=ghcr.io/${REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@v3
+      - name: Build for Linux and load for smoke testing
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          platforms: linux/amd64
+          tags: sih-demo:verify
+      - name: Smoke test before publication
+        run: |
+          docker run -d --name sih-check --read-only --cap-drop ALL --security-opt no-new-privileges -e PUBLIC_DEMO=true -p 127.0.0.1:8000:8000 sih-demo:verify
+          python3 scripts/smoke_container.py
+          docker exec sih-check python deploy/healthcheck.py
+          docker restart sih-check
+          python3 scripts/smoke_container.py
+      - name: Container logs and cleanup
+        if: always()
+        run: |
+          docker logs sih-check || true
+          docker rm -f sih-check || true
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish verified build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ steps.image.outputs.name }}:latest
+            ${{ steps.image.outputs.name }}:sih-2026
+            ${{ steps.image.outputs.name }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}

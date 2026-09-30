@@ -57,3 +57,5 @@ node_modules/
 /wheels/
 /releases/
 /artifacts/release/
+
+/.container-model/
